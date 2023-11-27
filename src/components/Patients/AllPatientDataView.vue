@@ -54,7 +54,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspS_ukYMLvsWX4vPkC7PcTiCqJYIASaWapw&usqp=CAU"
+            src="src/assets/image.png"
             alt=""
           />
         </div>

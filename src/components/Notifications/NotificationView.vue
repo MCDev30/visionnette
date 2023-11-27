@@ -4,7 +4,7 @@
       <div class="logo">
         <img
           class="logoOptique"
-          src="https://s3-alpha-sig.figma.com/img/8fb3/5ea8/63b623c16b621057e8ebae323c193d51?Expires=1701043200&Signature=CrXdXxc-OTw6Ed15dgEZjp~Hh0RGOCTCOM7kJPrG9V0SYEOPOA8icfD50TEyd9VKQZu8kH3VYDIXZLxBlo-oFi~bNDF~lDt6zDgSoXA8D13b1~jUvgMLlxBFqJZCXJoEpvvzYkE1n~DxdkogZz~nRugxSQ4I0m-RoSzKZXSi93ZvHCtY4MFCDuaYIMBr~~rz-VpsZrQ4avkAONJQ7mEuWxfBM0tjWFvt6lNTJyb8Xt16WR3~wP~QvnK0yO~sPvk91iq7GbNL7Kv~SlSccjAHi3cL983Dkcrq0Nu2nr87HZ9qZgBq7G3o2sKa0CYkM3tr1HbtzvhH0eHZtTVNdSeqAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          src="src/assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -13,7 +13,7 @@
         <RouterLink to="/dashboard">
           <div class="onglet">
             <img
-              src="https://s3-alpha-sig.figma.com/img/e74d/c0af/24c07f09765c411ca7006ed944bcf5ba?Expires=1701648000&Signature=M2mN~M0xb6OBjnyIi5AlJhAs9F-T~ARLkYoVfevj503q1ShyU3epeaIYbhpkN1UEvK2516dM1C7Thfr0awukP5plUjafC37AZxH9a0E9p1wv~1tVWO2b0YPLvl3lBCfpSi3~HpSJqn4rX4uYgv~qOKOkRhGD6jBYJWturdSoHUFFUNIDz84FsMLastkQxRzbvMu3YmxJz-DYc1d3bHVW4cbQEbN7c67p~YvQbmpjklFMDc9~aRTZEGunM2D55cjBxVsxvNI2FREGfa~9JwzgUO2yqNRVjg0Gy9jS4SxCdUijwVpBg1KZGAmG-t5E6ctEsfc-5jYVkNH-MhCx4OWXAg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="src/assets/dash-blanc.png"
             />
             <p>Dashboard</p>
           </div>
@@ -21,7 +21,7 @@
 
         <div class="onglet" style="cursor: pointer" @click="redirect('/patients')">
           <img
-            src="https://s3-alpha-sig.figma.com/img/87fd/9db3/8867116e9b0e74fed0a27d57e9992ea0?Expires=1701648000&Signature=knMTZSVu2Mmy-0pB1pqdxZxsrU-NQlHUKLbavy2S8E0p92uwLRG-~gZOjXHCAVw4Fo3myPfU4xzux-hLd3is8BEKoFVlCnMy3fB4-KP5CpSHofzsMPtuwH9wKDMm0slCXwkiNR5M8feMcrtppLiGyoCG-HZlbRZRPeDON9mfNRvgjQUV9acZUw~26rld6KPg3A4lkL~fj1lFGhZmPMVMopWOvwS-nfV2bAKsii1ud1VNTmiH-1Jxik3TVRSioBLD1eS1WTGhciWvUVkGPxDcPXDjGWqorflbasiym-6l79jFGWx9O-RNRT~Web5kTG5VmpQ6tHcgXKn4P9pJCk8NTA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+            src="src/assets/user-blanc.png"
           />
           <p>Patients</p>
         </div>
@@ -29,7 +29,7 @@
         <RouterLink to="/notification">
           <div class="onglet" id="active">
             <img
-              src="https://s3-alpha-sig.figma.com/img/fec8/e4ef/6b9bdf74d6fc99c1f69ca2389bff6946?Expires=1701648000&Signature=HAfrEIf-o5LbvVJcdFIxGFt3zV~8EYbmgweCPeiACvbhHNa4KuEQH1R-JoKz6eBOqK--cDxn8-HknB1MVHoqx~QZcalFxpyz6nGtndcjDqakdiPMcX9ez71c5Cfdibkvco1EUFQGIPqbswNxZYZG7Di3l1OhLNF5bLNdZvHvsH-OFy8QUhxwYCEDO53In1VnKxGiGWSJqmdLtLu7owBXQaP4x-m597BNFW5aBbmQXu3Ty-jBylIxpiwOyhBLmRtTI87qMUK-anlvlD0oOnS7d36ewdBu-RdbNp8n2JFlmAFROhjWvvokfODk5ntKDzMqCC1fzFffkCyqWWbE5zT~ww__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="src/assets/notif-violet.png"
             />
             <p>Notifications</p>
             <!-- <p id="nbre" v-if="sessionStorage.getItem('nbre')" >{{ notif_lenght }}</p> -->
@@ -39,7 +39,7 @@
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="https://s3-alpha-sig.figma.com/img/1784/efbc/d7b02f0b8cd1e1b1ab3a1fd03f57cae1?Expires=1701648000&Signature=YwNcODC5nMLM80w2gmKRpc7vazROJFLTrccySowY37qsRoLBqYZMQlc8a4FGJAQeuG359Desytn7AcZr7zG~2zM17v-UPeT1PABFY-TJFyG75CIOOiKp6G~44gOM5a7KtIEZ7KC14r-QP7fL5jeaeWF8fjELqWX8WZejA4faiWbwXS3VcV53PdetfExdGq8kLKOeojEUnnwq8l9WCX81zDjdDYbkPa-IiJH-neg~BhvzxbSkRDz-FTN~JHEFxD1Tbn9S6ASgtP3ZcQaz72U-ZyQTAr~srHx3g6lvI2Xyp83cjH-pU7aBiAvU8xvYd-5xrGtP35vHyJy5hpeViEZZlw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="src/assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -51,7 +51,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspS_ukYMLvsWX4vPkC7PcTiCqJYIASaWapw&usqp=CAU"
+            src="src/assets/image.png"
             alt=""
           />
         </div>
