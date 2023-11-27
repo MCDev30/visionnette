@@ -1,11 +1,10 @@
-
 <template>
   <div class="container" v-bind:class="{ contain }">
     <section class="section">
       <div class="logo">
         <img
           class="logoOptique"
-          src="https://s3-alpha-sig.figma.com/img/8fb3/5ea8/63b623c16b621057e8ebae323c193d51?Expires=1701043200&Signature=CrXdXxc-OTw6Ed15dgEZjp~Hh0RGOCTCOM7kJPrG9V0SYEOPOA8icfD50TEyd9VKQZu8kH3VYDIXZLxBlo-oFi~bNDF~lDt6zDgSoXA8D13b1~jUvgMLlxBFqJZCXJoEpvvzYkE1n~DxdkogZz~nRugxSQ4I0m-RoSzKZXSi93ZvHCtY4MFCDuaYIMBr~~rz-VpsZrQ4avkAONJQ7mEuWxfBM0tjWFvt6lNTJyb8Xt16WR3~wP~QvnK0yO~sPvk91iq7GbNL7Kv~SlSccjAHi3cL983Dkcrq0Nu2nr87HZ9qZgBq7G3o2sKa0CYkM3tr1HbtzvhH0eHZtTVNdSeqAw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+          src="../../assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -14,7 +13,7 @@
         <RouterLink to="/dashboard">
           <div class="onglet">
             <img
-              src="https://s3-alpha-sig.figma.com/img/e74d/c0af/24c07f09765c411ca7006ed944bcf5ba?Expires=1701648000&Signature=M2mN~M0xb6OBjnyIi5AlJhAs9F-T~ARLkYoVfevj503q1ShyU3epeaIYbhpkN1UEvK2516dM1C7Thfr0awukP5plUjafC37AZxH9a0E9p1wv~1tVWO2b0YPLvl3lBCfpSi3~HpSJqn4rX4uYgv~qOKOkRhGD6jBYJWturdSoHUFFUNIDz84FsMLastkQxRzbvMu3YmxJz-DYc1d3bHVW4cbQEbN7c67p~YvQbmpjklFMDc9~aRTZEGunM2D55cjBxVsxvNI2FREGfa~9JwzgUO2yqNRVjg0Gy9jS4SxCdUijwVpBg1KZGAmG-t5E6ctEsfc-5jYVkNH-MhCx4OWXAg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="../../assets/dash-blanc.png"
             />
             <p>Dashboard</p>
           </div>
@@ -23,7 +22,7 @@
         <RouterLink to="/patients">
           <div class="onglet" id="active">
             <img
-              src="https://s3-alpha-sig.figma.com/img/871d/603e/d329db58a6dbeec9073a29d9eb802ed9?Expires=1701648000&Signature=Qq336yyIWKL~qN0zxS2nxhEhstfHLM9qerEC3UDzIsXb82R46YqpWRHRU~0thvC3sKm-4BV8OmJCdZ5R-6vl0SQs8~k~Nz17mFahs3WXDxAj8CfflzVWT2NyMpPUIWqGPU6PCeBduQsrCHhmzDSDItgWJN7cDSqZT4jHC2CGH-Bw-rDJPEZ0P8VTNnlUYnE-6TJkWgjPbVbt3P9iM6qhNYqABLpxfjr62mUtsz9fBp85sWhhIDBhdZ5kG00t1ZvCKMrAEtIJcUB649nomjCTxaQPDYzXXRH8WNiPIQMNe8EO7gppTIrTxm0dCXcCCuaEueHZ4q--a4~S76ynquOCMQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="../../assets/user-violet.png"
             />
             <p>Patients</p>
           </div>
@@ -32,7 +31,7 @@
         <RouterLink to="/notification">
           <div class="onglet">
             <img
-              src="https://s3-alpha-sig.figma.com/img/e9cc/edfa/bfb90c9fc721160f5618fc29c8f59f59?Expires=1701648000&Signature=MAKHpmxFMnAioXGola3edY9s0PHOlvA6V4zoKKBwm1YSru0nUpSwGqWgJ5gZOLMqXrLcP70AIJsMK-WhFUdpEK4kZWyPh7i4HxJg12kaJYyfeoRK2D5wqK3TOUwfxoIwBfrijjI-UH3Tk8IQ6kwqNJ~gnjWsb1C8MVCbzW8~6VthNEcVoPw9joKuOO5ajlz-Fd0xSyM97Fbm2nXkDzRBX2qpxbDqNseu-FTATEEYecp0oYU-7IKlG-bq849M3ugzpzTx~l-U74D23XmeyL2qKq7LzUd35CxWPnOz8jnakcxfcXPOPPxnMBmFXZItmqCEFT~v1i7xDCMC90ijqnW-Xg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
             <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
@@ -42,7 +41,7 @@
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="https://s3-alpha-sig.figma.com/img/1784/efbc/d7b02f0b8cd1e1b1ab3a1fd03f57cae1?Expires=1701648000&Signature=YwNcODC5nMLM80w2gmKRpc7vazROJFLTrccySowY37qsRoLBqYZMQlc8a4FGJAQeuG359Desytn7AcZr7zG~2zM17v-UPeT1PABFY-TJFyG75CIOOiKp6G~44gOM5a7KtIEZ7KC14r-QP7fL5jeaeWF8fjELqWX8WZejA4faiWbwXS3VcV53PdetfExdGq8kLKOeojEUnnwq8l9WCX81zDjdDYbkPa-IiJH-neg~BhvzxbSkRDz-FTN~JHEFxD1Tbn9S6ASgtP3ZcQaz72U-ZyQTAr~srHx3g6lvI2Xyp83cjH-pU7aBiAvU8xvYd-5xrGtP35vHyJy5hpeViEZZlw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+              src="../../assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -54,7 +53,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="src/assets/image.png"
+            src="../../assets/image.png"
             alt=""
           />
         </div>

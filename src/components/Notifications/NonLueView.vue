@@ -1,5 +1,6 @@
 <template>
-  <div class="container" v-bind:class="{ contain }">
+  <p></p>
+  <!-- <div class="container" v-bind:class="{ contain }">
     <section class="section">
       <div class="logo">
         <img
@@ -57,7 +58,6 @@
             alt=""
           />
         </div>
-        <!-- bind the data from api -->
         <div class="infos">
           <p>Administrateur</p>
           <p id="second">{{ admin }}</p>
@@ -74,19 +74,17 @@
 
               <p id="nlues" style="cursor: pointer" @click="redirect('/non-lue')">Non lues</p>
             </div>
-            <!-- <button>Tous supprimer</button> -->
           </div>
-          <h3>Non lues</h3>
-          <!-- eslint-disable-next-line vue/require-v-for-key -->
+          <h3>Non lues</h3> eslint-disable-next-line vue/require-v-for-key 
           <div v-for="notif in notifNonLues" class="toast recentes">
-            <!-- <img src="https://s3-alpha-sig.figma.com/img/a73f/9ad9/8a71e60c7d3f7ce6647073f7ad735830?Expires=1701648000&Signature=NphsSRip9wcTd21Bte-Ekuu9gJGGiFE9deqRLLteKBcZZ36-P~uiSQQaf73WMMmSxIzaBVvpvvGwo4Li6OeJltPnqftvmoTQDtCMts1zmCkwYklPxyiJ-NhZ7rkO8yYkiZeDjI8lZAn~Q8snEpLS5afseP35C5MJlZ7XdC4cgb6wXuVYqZ980sRgSRzDFAhY2ygG54oHEIIhePQwIHDF4zzPMcgHCpLW3WKQqzhCGIabFVb9ICkOaqSFsnJRd89ytf9ZEK~xTJlGmJCsRjeVHn7eb~~CoVKDPxjZKxMbzvFrciMu52jk7baNX7Zxxp8PCEBUZblKubiJexzouZoeUQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"/> -->
+            <img src="https://s3-alpha-sig.figma.com/img/a73f/9ad9/8a71e60c7d3f7ce6647073f7ad735830?Expires=1701648000&Signature=NphsSRip9wcTd21Bte-Ekuu9gJGGiFE9deqRLLteKBcZZ36-P~uiSQQaf73WMMmSxIzaBVvpvvGwo4Li6OeJltPnqftvmoTQDtCMts1zmCkwYklPxyiJ-NhZ7rkO8yYkiZeDjI8lZAn~Q8snEpLS5afseP35C5MJlZ7XdC4cgb6wXuVYqZ980sRgSRzDFAhY2ygG54oHEIIhePQwIHDF4zzPMcgHCpLW3WKQqzhCGIabFVb9ICkOaqSFsnJRd89ytf9ZEK~xTJlGmJCsRjeVHn7eb~~CoVKDPxjZKxMbzvFrciMu52jk7baNX7Zxxp8PCEBUZblKubiJexzouZoeUQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"/> 
             <p id="moment" style="padding-top: 10px">{{ notif.moment }}</p>
             <p>{{ notif.msg }}</p>
           </div>
         </div>
       </div>
     </aside>
-  </div>
+  </div> -->
 </template>
 
 <script>

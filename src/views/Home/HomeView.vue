@@ -4,7 +4,7 @@
       <div class="logo">
         <img
           class="logoOptique"
-          src="src/assets/logo.png"
+          src="../../assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -13,7 +13,7 @@
         <RouterLink to="/dashboard">
           <div class="onglet" id="active">
             <img
-              src="src/assets/dash-violet.png"
+              src="../../assets/dash-violet.png"
             />
             <p>Dashboard</p>
           </div>
@@ -22,7 +22,7 @@
         <RouterLink to="/patients">
           <div class="onglet">
             <img
-              src="src/assets/user-blanc.png"
+              src="../../assets/user-blanc.png"
             />
             <p>Patients</p>
           </div>
@@ -31,7 +31,7 @@
         <RouterLink to="/notification">
           <div class="onglet">
             <img
-              src="src/assets/notif-blanc.png"
+              src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
             <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
@@ -41,7 +41,7 @@
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="src/assets/logout-blanc.png"
+              src="../../assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -53,7 +53,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="src/assets/image.png"
+            src="../../assets/image.png"
             alt=""
           />
         </div>
@@ -144,7 +144,7 @@
                   <p id="number">{{ len }}</p>
                   <p id="taux">
                     <img
-                      src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      src="../../assets/av.png"
                       alt=""
                     />
                     {{ percent }}%
@@ -160,7 +160,7 @@
                   <p id="number">{{ len + '/'+ len }}</p>
                   <p id="taux">
                     <img
-                      src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                      src="../../assets/av.png"
                       alt=""
                     />{{ len !== 0 ? '100%' : '0%' }}
                   </p>
@@ -178,7 +178,7 @@
                 <p id="number">Empoyé 1</p>
                 <p id="taux">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                    src="../../assets/av.png"
                     alt=""
                   />20%
                 </p>
@@ -187,7 +187,7 @@
                 <p id="number">Empoyé 2</p>
                 <p id="taux">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                    src="../../assets/av.png"
                     alt=""
                   />20%
                 </p>
@@ -197,7 +197,7 @@
                 <p id="taux" class="yellow">
                   <img
                     id="reverse"
-                    src="https://s3-alpha-sig.figma.com/img/9acb/7ed1/f035b77027648091a1f9ae3c69808f0e?Expires=1701648000&Signature=XXwo7FVmZocoqI6EFvGae5AE1Y2HrDRp3Gg7xosGKDsCN5-7857V7shKXL5K3uswZv5PAKLmqfhoqgFOwJPXKYeTkXLSjC3575fYpBo8XtPviJag1Rt9cIE6TYBFVdT9gYMOR1TrZ6JKYYy9qlEr4UiOXYkbTma9HZIWq-KF5lfQoFlVSkrf6yA12Dvp80uxByp5RNktM69aU0T-osSdOkdO158lf1V1dHF8vUCJe5Snxfhj-n5FaAiC3CRRmSXXOuJheWaFFgjh7gYakGWvVHQDWW-nyCb~GU3JANKjzMbwdWROiYhpSlXii4YgeLGbiuPih8vmsREMghgVVo6lkA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                    src="../../assets/ay.png"
                     alt=""
                   />-2%
                 </p>

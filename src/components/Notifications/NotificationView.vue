@@ -4,7 +4,7 @@
       <div class="logo">
         <img
           class="logoOptique"
-          src="src/assets/logo.png"
+          src="../../assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -13,7 +13,7 @@
         <RouterLink to="/dashboard">
           <div class="onglet">
             <img
-              src="src/assets/dash-blanc.png"
+              src="../../assets/dash-blanc.png"
             />
             <p>Dashboard</p>
           </div>
@@ -21,7 +21,7 @@
 
         <div class="onglet" style="cursor: pointer" @click="redirect('/patients')">
           <img
-            src="src/assets/user-blanc.png"
+            src="../../assets/user-blanc.png"
           />
           <p>Patients</p>
         </div>
@@ -29,7 +29,7 @@
         <RouterLink to="/notification">
           <div class="onglet" id="active">
             <img
-              src="src/assets/notif-violet.png"
+              src="../../assets/notif-violet.png"
             />
             <p>Notifications</p>
             <!-- <p id="nbre" v-if="sessionStorage.getItem('nbre')" >{{ notif_lenght }}</p> -->
@@ -39,7 +39,7 @@
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="src/assets/logout-blanc.png"
+              src="../../assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -51,7 +51,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="src/assets/image.png"
+            src="../../assets/image.png"
             alt=""
           />
         </div>
@@ -105,7 +105,7 @@
             <!-- eslint-disable-next-line vue/require-v-for-key -->
             <div v-for="notif in notifAnciennes" class="toast ancienne">
               <img
-                src="https://s3-alpha-sig.figma.com/img/a73f/9ad9/8a71e60c7d3f7ce6647073f7ad735830?Expires=1701648000&Signature=NphsSRip9wcTd21Bte-Ekuu9gJGGiFE9deqRLLteKBcZZ36-P~uiSQQaf73WMMmSxIzaBVvpvvGwo4Li6OeJltPnqftvmoTQDtCMts1zmCkwYklPxyiJ-NhZ7rkO8yYkiZeDjI8lZAn~Q8snEpLS5afseP35C5MJlZ7XdC4cgb6wXuVYqZ980sRgSRzDFAhY2ygG54oHEIIhePQwIHDF4zzPMcgHCpLW3WKQqzhCGIabFVb9ICkOaqSFsnJRd89ytf9ZEK~xTJlGmJCsRjeVHn7eb~~CoVKDPxjZKxMbzvFrciMu52jk7baNX7Zxxp8PCEBUZblKubiJexzouZoeUQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                src="../../assets/cross.png"
               />
               <p id="moment" style="padding-top: 10px">{{ not }}</p>
               <p>{{ notif.msg }}</p>

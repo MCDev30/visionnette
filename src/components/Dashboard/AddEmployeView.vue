@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router';
       <div class="logo">
         <img
           class="logoOptique"
-          src="src/assets/logo.png"
+          src="../../assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from 'vue-router';
         <RouterLink to="/dashboard">
           <div class="onglet" id="active">
             <img
-              src="src/assets/dash-violet.png"
+              src="../../assets/dash-violet.png"
             />
             <p>Dashboard</p>
           </div>
@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from 'vue-router';
         <RouterLink to="/patients">
           <div class="onglet">
             <img
-              src="src/assets/user-blanc.png"
+              src="../../assets/user-blanc.png"
             />
             <p>Patients</p>
           </div>
@@ -32,7 +32,7 @@ import { RouterLink, RouterView } from 'vue-router';
         <RouterLink to="/notification">
           <div class="onglet">
             <img
-              src="src/assets/notif-blanc.png"
+              src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
             <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
@@ -42,7 +42,7 @@ import { RouterLink, RouterView } from 'vue-router';
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="src/assets/logout-blanc.png"
+              src="../../assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -54,7 +54,7 @@ import { RouterLink, RouterView } from 'vue-router';
       <div class="topPanel">
         <div class="admin">
           <img
-            src="src/assets/image.png"
+            src="../../assets/image.png"
             alt=""
           />
         </div>

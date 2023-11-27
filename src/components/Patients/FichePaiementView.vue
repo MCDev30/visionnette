@@ -4,7 +4,7 @@
       <div class="logo">
         <img
           class="logoOptique"
-          src="src/assets/logo.png"
+          src="../../assets/logo.png"
           alt="Visionette Optique"
           width="168"
         />
@@ -13,7 +13,7 @@
         <RouterLink to="/dashboard">
           <div class="onglet">
             <img
-              src="src/assets/dash-blanc.png"
+              src="../../assets/dash-blanc.png"
             />
             <p>Dashboard</p>
           </div>
@@ -22,7 +22,7 @@
         <RouterLink to="/patients">
           <div class="onglet" id="active">
             <img
-              src="src/assets/user-violet.png"
+              src="../../assets/user-violet.png"
             />
             <p>Patients</p>
           </div>
@@ -31,7 +31,7 @@
         <RouterLink to="/notification">
           <div class="onglet">
             <img
-              src="src/assets/notif-blanc.png"
+              src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
             <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
@@ -41,7 +41,7 @@
         <RouterLink to="/disconnect">
           <div class="onglet">
             <img
-              src="src/assets/logout-blanc.png"
+              src="../../assets/logout-blanc.png"
             />
             <p>Se déconnecter</p>
           </div>
@@ -52,7 +52,7 @@
       <div class="topPanel">
         <div class="admin">
           <img
-            src="src/assets/image.png"
+            src="../../assets/image.png"
             alt=""
           />
         </div>
