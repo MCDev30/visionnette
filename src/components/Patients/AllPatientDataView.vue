@@ -228,7 +228,7 @@ export default {
         right_eye_vp_correction:this.rghvp,
       }
 
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/patients', {
+      fetch('https://laravel.lazonebleue.com/api/patients', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

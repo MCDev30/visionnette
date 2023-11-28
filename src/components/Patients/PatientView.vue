@@ -164,7 +164,7 @@ export default {
     }
   },
   mounted() {
-    const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+    const url = new URL('https://laravel.lazonebleue.com/api/notifications')
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -194,7 +194,7 @@ export default {
       })
   
       const url2 = new URL(
-    "http://visionette.sc1cjlx6136.universe.wf/api/get_all_patients"
+    "https://laravel.lazonebleue.com/api/get_all_patients"
       );
       fetch(url2, {
           method: "GET",
@@ -205,7 +205,7 @@ export default {
       })
 
       const url3 = new URL(
-          `http://visionette.sc1cjlx6136.universe.wf/api/get_total_patients_by_employee?employee_id=${sessionStorage.getItem('user_id')}`
+          `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${sessionStorage.getItem('user_id')}`
       );
       fetch(url3, {
           method: "GET",
@@ -217,7 +217,7 @@ export default {
     },
   methods: {
     modify(idx, route) {
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/patients', {
+      fetch('https://laravel.lazonebleue.com/api/patients', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export default {
     },
     supp(id){
       const url = new URL(
-          `http://visionette.sc1cjlx6136.universe.wf/api/patients/${id}`
+          `https://laravel.lazonebleue.com/api/patients/${id}`
       );
 
       const headers = {

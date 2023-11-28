@@ -112,7 +112,7 @@ export default {
         password: this.password,
         password_confirmation: this.password,
       }
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/update_employees', {
+      fetch('https://laravel.lazonebleue.com/api/update_employees', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

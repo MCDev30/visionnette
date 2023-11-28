@@ -98,7 +98,7 @@ export default {
     }
   },
   mounted() {
-    const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+    const url = new URL('https://laravel.lazonebleue.com/api/notifications')
     const headers = {
       'Content-Type': 'application/json',
       Accept: 'application/json',

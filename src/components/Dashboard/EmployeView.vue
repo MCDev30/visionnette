@@ -106,7 +106,7 @@ export default {
   },
   methods:{
   load() {
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/get_all_employees', {
+      fetch('https://laravel.lazonebleue.com/api/get_all_employees', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ export default {
     },
     modify(idx, route){
 
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/get_all_employees', {
+      fetch('https://laravel.lazonebleue.com/api/get_all_employees', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

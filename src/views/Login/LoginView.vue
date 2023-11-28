@@ -12,7 +12,7 @@ export default {
         email: this.email,
         password: this.password
       }
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/login', {
+      fetch('https://laravel.lazonebleue.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

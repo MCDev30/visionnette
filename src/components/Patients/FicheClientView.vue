@@ -238,7 +238,7 @@ export default {
           'Accept': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/patients', {
+      fetch('https://laravel.lazonebleue.com/api/patients', {
         method: 'GET',
         headers: header
       })
@@ -270,7 +270,7 @@ export default {
         .catch((error) => {
           console.error('Fetch error:', error)
         })
-      const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/sells')
+      const url = new URL('https://laravel.lazonebleue.com/api/sells')
       fetch(url, {
         method: 'GET',
         headers: header
@@ -324,10 +324,10 @@ export default {
           date_livraison: this.date_livraison
         }
         const url1 = new URL(
-            `http://visionette.sc1cjlx6136.universe.wf/api/patients/${new_data_patient.patient_id}`
+            `https://laravel.lazonebleue.com/api/patients/${new_data_patient.patient_id}`
         );
         const url2 = new URL(
-            `http://visionette.sc1cjlx6136.universe.wf/api/sells/${this.pid}`
+            `https://laravel.lazonebleue.com/api/sells/${this.pid}`
         );
         const headers = {
             "Content-Type": "application/json",

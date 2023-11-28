@@ -61,7 +61,7 @@
         "Content-Type": "application/json",
         "Accept": "application/json",
       };
-      fetch("http://visionette.sc1cjlx6136.universe.wf/api/register", {
+      fetch("https://laravel.lazonebleue.com/api/register", {
         method: "POST",
         body: JSON.stringify(data),
         headers: headers,

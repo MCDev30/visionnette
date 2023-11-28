@@ -177,7 +177,7 @@
     methods: {
         load(){
         const url3 = new URL(
-          `http://visionette.sc1cjlx6136.universe.wf/api/get_total_patients_by_employee?employee_id=${this.emp_id}`
+          `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${this.emp_id}`
       );
       const headers = {
       'Content-Type': 'application/json',
@@ -198,7 +198,7 @@
       })  
 
       const url2 = new URL(
-    "http://visionette.sc1cjlx6136.universe.wf/api/get_all_patients"
+    "https://laravel.lazonebleue.com/api/get_all_patients"
       );
       fetch(url2, {
           method: "GET",
@@ -212,7 +212,7 @@
     },
     mounted() {
         this.load()
-      const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/user')
+      const url = new URL('https://laravel.lazonebleue.com/api/user')
       const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
@@ -237,7 +237,7 @@
         }
       })
   
-      const url2 = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+      const url2 = new URL('https://laravel.lazonebleue.com/api/notifications')
       fetch(url2, {
         method: 'GET',
         headers

@@ -117,7 +117,7 @@ export default {
   },
   mounted(){
     const url = new URL(
-        "http://visionette.sc1cjlx6136.universe.wf/api/sells"
+        "https://laravel.lazonebleue.com/api/sells"
     );
     const headers = {
         "Content-Type": "application/json",
@@ -148,7 +148,7 @@ export default {
         solde: this.solde,
         date_livraison: this.date
       }
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/sells', {
+      fetch('https://laravel.lazonebleue.com/api/sells', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

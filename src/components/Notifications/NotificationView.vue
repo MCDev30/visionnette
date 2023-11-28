@@ -130,7 +130,7 @@ export default {
     }
   },
   mounted() {
-    const url2 = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+    const url2 = new URL('https://laravel.lazonebleue.com/api/notifications')
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -148,7 +148,7 @@ export default {
           '0' + date.getDate()
         ).slice(-2)}`
       })
-    const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+    const url = new URL('https://laravel.lazonebleue.com/api/notifications')
 
     fetch(url, {
       method: 'GET',
@@ -175,7 +175,7 @@ export default {
       window.location.href = route
     },
     deleteit(id) {
-      const url = new URL(`http://visionette.sc1cjlx6136.universe.wf/api/notifications/${id}`)
+      const url = new URL(`https://laravel.lazonebleue.com/api/notifications/${id}`)
       const headers = {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

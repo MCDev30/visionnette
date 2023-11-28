@@ -105,7 +105,7 @@ export default {
         email: this.gmail,
         
       }
-      fetch('http://visionette.sc1cjlx6136.universe.wf/api/create_employees', {
+      fetch('https://laravel.lazonebleue.com/api/create_employees', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

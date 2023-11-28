@@ -287,7 +287,7 @@ export default {
     }
   },
   mounted() {
-    const url = new URL('http://visionette.sc1cjlx6136.universe.wf/api/user')
+    const url = new URL('https://laravel.lazonebleue.com/api/user')
 
     const headers = {
       'Content-Type': 'application/json',
@@ -318,7 +318,7 @@ export default {
       document.querySelector('.toast').style.display = 'block'
     }
 
-    const url2 = new URL('http://visionette.sc1cjlx6136.universe.wf/api/notifications')
+    const url2 = new URL('https://laravel.lazonebleue.com/api/notifications')
     fetch(url2, {
       method: 'GET',
       headers
