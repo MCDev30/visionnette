@@ -60,13 +60,13 @@ export default {
             src="../../assets/logo.png"
             alt="Visionette Optique"
           />
-          <div class="menuConnect">
-            <RouterLink to="/"><button id="router">S’enregistrer</button></RouterLink>
-            <RouterLink to="/login"><button id="router">Se connecter</button></RouterLink>
+          <div class="menuConnect" style="margin-top: 30px;">
+            <!-- <RouterLink to="/"><button id="router">S’enregistrer</button></RouterLink>
+            <RouterLink to="/login"><button id="router">Se connecter</button></RouterLink> -->
           </div>
-          <div class="voyant"></div>
+          <!-- <div class="voyant"></div> -->
           <form @submit.prevent="envoyer" class="connexion">
-            <p id="texte">Se connecter en tant qu’administrateur</p>
+            <p id="texte" style="text-align:center">Se connecter</p>
             <label for="email">Email</label><br />
             <input type="email" name="email" id="email" v-model="email" /><br />
             <label for="password">Mot de passe</label><br />
@@ -79,7 +79,7 @@ export default {
               <span>Se rappeler de moi</span>
             </div>
             <div class="droit" style="margin-left: -50px; cursor:pointer">
-              <p><a href="">Mot de passe oublié</a></p>
+              <p><a href="/password-reset">Mot de passe oublié</a></p>
             </div>
           </div>
         </div>

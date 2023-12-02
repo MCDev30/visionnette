@@ -18,22 +18,19 @@
             <p>Dashboard</p>
           </div>
         </RouterLink>
-
-
           <div class="onglet" id="active" style="cursor:pointer" @click="redirect('/patients')">
             <img
               src="../../assets/user-violet.png"
             />
             <p>Patients</p>
           </div>
-
         <RouterLink to="/notification">
           <div class="onglet">
             <img
               src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
-            <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
+            <p id="nbre" v-if="nbre">{{ nbre }}</p>
           </div>
         </RouterLink>
 
@@ -113,7 +110,7 @@
                 </tr>
                 <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
                 <tr v-if="current === 'Administrateur'" id="liste" v-for="elm in patient" :key="elm.id" :class="[elm.color % 2 == 1 ? 'violet' : 'yellow']">
-                  <td>{{ elm.first_name }} {{ elm.last_name.toUpperCase() }}</td>
+                  <td>{{ elm.last_name.toUpperCase()}} {{ elm.first_name }} </td>
                   <td>{{ elm.phone_number ? elm.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>
                     <div class="action">
@@ -129,7 +126,7 @@
                   <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elm.id)">Supprimer</td>
                 </tr>
                 <tr v-else id="liste" v-for="elmt in pat" :key="elmt.id" :class="[elmt.color % 2 == 1 ? 'violet' : 'yellow']">
-                  <td>{{ elmt.first_name }} {{ elmt.last_name.toUpperCase() }}</td>
+                  <td>{{ elmt.last_name.toUpperCase()}} {{ elmt.first_name }} </td>
                   <td>{{ elmt.phone_number ? elmt.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>
                     <div class="action">

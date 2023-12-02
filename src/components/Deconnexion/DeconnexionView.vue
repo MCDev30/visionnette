@@ -34,7 +34,7 @@
               src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
-            <p id="nbre" v-if="notif_lenght !== 0">{{ notif_lenght }}</p>
+            <p id="nbre" v-if="notif_lenght">{{ notif_lenght }}</p>
           </div>
         </RouterLink>
 
@@ -123,7 +123,7 @@ export default {
             console.log('Logout successful!')
             localStorage.clear()
             sessionStorage.clear()
-            setTimeout(window.location.href = '/login', 100);
+            setTimeout(window.location.href = '/', 100);
           } else {
             console.error('Logout failed!', response)
           }

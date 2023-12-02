@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import RegisterView from '../views/Register/RegisterView.vue'
+import ResetPasswordView from '../views/Register/ResetPasswordView.vue'
 import LoginView from '../views/Login/LoginView.vue'
 import HomeView from '../views/Home/HomeView.vue'
 import EmployeView from '../components/Dashboard/EmployeView.vue'
@@ -23,12 +23,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'register',
-      component: RegisterView
+      path: '/password-reset',
+      name: 'reset-password',
+      component: ResetPasswordView
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: LoginView
     },

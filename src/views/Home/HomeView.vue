@@ -34,7 +34,7 @@
               src="../../assets/notif-blanc.png"
             />
             <p>Notifications</p>
-            <p id="nbre" v-if="nbre !== 0">{{ nbre }}</p>
+            <p id="nbre" v-if="nbre">{{ nbre }}</p>
           </div>
         </RouterLink>
 
@@ -86,47 +86,44 @@
           </div>
         </div>
         <!-- bind data here from api -->
-        <div v-if="current_user === 'Administrateur'" class="cardSlide">
+        <div v-if="current_user !== 'admin'" class="cardSlide">
           <div class="card">
             <div class="cardContainer">
               <p id="title" >Ventes</p>
               <div class="discover">
-                <p id="number">100,000 <span>FCFA</span></p>
+                <p id="number">{{ total2 }} <span>FCFA</span></p>
               </div>
             </div>
           </div>
-
           <div class="card">
             <div class="cardContainer">
               <p id="title">Total de verres vendu</p>
               <div class="discover">
-                <p id="number">500</p>
+                <p id="number">{{ len2 }}</p>
                 <p id="taux">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                    src="../../assets/av.png"
                     alt=""
-                  />20%
+                  />{{ percent2 }}%
                 </p>
               </div>
             </div>
           </div>
-
           <div class="card">
             <div class="cardContainer">
               <p id="title">Taux de rétention</p>
               <div class="discover">
-                <p id="number">12/12</p>
+                <p id="number">{{ len2 + '/'+ len2 }}</p>
                 <p id="taux">
                   <img
-                    src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+                    src="../../assets/av.png"
                     alt=""
-                  />100%
+                  />{{ len2 !== 0 ? '100%' : '0%' }}
                 </p>
               </div>
             </div>
           </div>
         </div>
-
         <div v-else class="cardSlide">
             <div class="card">
               <div class="cardContainer">
@@ -171,37 +168,26 @@
 
 
         <div class="statistique">
-          <div class="topVendeur" v-if="current_user === 'admin'">
-            <p id="title">Top vendeurs</p>
-            <div class="employe">
+          <!-- eslint-disable-next-line vue/require-v-for-key -->
+          <!-- eslint-disable-next-line vue/require-v-for-key -->
+          <div  class="topVendeur" v-if="current_user === 'admin'">
+            <p id="title">Top vendeur</p>
+            <!-- eslint-disable-next-line vue/require-v-for-key -->
+            <div v-for="elm in pat" class="employe">
               <div class="discovery">
-                <p id="number">Empoyé 1</p>
+                <p id="number">{{ elm.name }}</p>
                 <p id="taux">
-                  <img
+                  <img v-if="elm.caractere === 'plus'"
                     src="../../assets/av.png"
                     alt=""
-                  />20%
-                </p>
-              </div>
-              <div class="discovery">
-                <p id="number">Empoyé 2</p>
-                <p id="taux">
-                  <img
-                    src="../../assets/av.png"
-                    alt=""
-                  />20%
-                </p>
-              </div>
-              <div class="discovery" id="emp3">
-                <p id="number">Empoyé 3</p>
-                <p id="taux" class="yellow">
-                  <img
-                    id="reverse"
+                  />
+                  <img v-else
                     src="../../assets/ay.png"
                     alt=""
-                  />-2%
+                  />
+                  <span :class="[elm.caractere === 'plus' ? 'vio' : 'emp3']">{{ elm.percent }}%</span>
                 </p>
-              </div>
+              </div>    
             </div>
           </div>
           <div v-if="current_user === 'admin'" class="graphique">
@@ -278,6 +264,11 @@ export default {
       total:0,
       len: 0,
       percent:0,
+      emp_id:sessionStorage.getItem('user_id') ? sessionStorage.getItem('user_id') : 0,
+      len2: 0,
+      percent2:0,
+      total2:0,
+      pat:[]
     }
   },
   methods: {
@@ -288,44 +279,43 @@ export default {
   },
   mounted() {
     const url = new URL('https://laravel.lazonebleue.com/api/user')
-
     const headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': `Bearer ${localStorage.getItem('token')}`
     }
-
     fetch(url, {
       method: 'GET',
       headers
     }).then((response) => response.json())
     .then(body => {
       if (body.profil_id === 1) {
+        this.emp_id = body.id
         this.current_user = 'admin'
         sessionStorage.setItem('user', 'Administrateur')
         sessionStorage.setItem('user_id', body.id)
-        // console.log(body.id)
+        console.log(body.id)
       } else{
+        this.emp_id = body.id
         this.current_user = 'employe'
         sessionStorage.setItem('user', 'Employé(e)')
         sessionStorage.setItem('user_id', body.id)
       }
     })
-    // console.log(localStorage.getItem('isChecked'))
+
     if (localStorage.getItem('isChecked') === 'true') {
       document.querySelector('.toast').style.display = 'none'
     } else {
       document.querySelector('.toast').style.display = 'block'
     }
 
-    const url2 = new URL('https://laravel.lazonebleue.com/api/notifications')
-    fetch(url2, {
+    const url3 = new URL('https://laravel.lazonebleue.com/api/notifications')
+    fetch(url3, {
       method: 'GET',
       headers
     })
       .then((response) => response.json())
       .then((body) => {
-        // console.log(body)
         this.nbre = parseInt(body.body)
         sessionStorage.setItem('nbre', body.body)
         if (body.body > 0) {
@@ -341,6 +331,65 @@ export default {
           sessionStorage.setItem('nbre', body.body)
         }
         }
+      })
+
+      const url4 = new URL(
+          `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${this.emp_id}`
+      );
+      fetch(url4, {
+          method: "GET",
+          headers,
+      }).then(response => response.json())
+      .then(body => {
+        // console.log(body.body)
+        // console.log(this.emp_id)
+        this.len2 = body.body.length
+        this.percent2 = (this.len2*100/body.body.length).toFixed(2)
+        body.body.forEach(elm=> {
+            this.total2 += parseInt(elm.sells[0].montant)
+        });
+      })  
+
+      const url2 = new URL(
+    "https://laravel.lazonebleue.com/api/get_all_patients"
+      );
+      fetch(url2, {
+          method: "GET",
+          headers,
+      }).then(response => response.json())
+      .then(body => {
+        // console.log(body.body)
+        this.len = body.body.length
+        this.percent = (this.len/body.body.length)*100
+        this.percent2 = (this.len2/body.body.length)*100
+        body.body.forEach(elm=> {
+            this.total += parseInt(elm.sells[0].montant)
+        });
+        body.body.forEach(elm=> {
+          const url4 = new URL(
+              `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${elm.user_id}`
+          );
+          fetch(url4, {
+              method: "GET",
+              headers,
+          }).then(response => response.json())
+          .then(body => {
+            if (body.success) {
+              if (body.body) {
+                console.log(body.body)
+                this.pat.push({
+                  name: body.body[0].user.name,
+                  percent: (body.body[0].sells.length/this.len).toFixed(2),
+                  caractere: body.body[0].sells.length/this.len > 0.2 ? 'plus' : "minus"
+                })
+              }
+            }
+            else{
+              console.log("Erreur")
+            }
+          })  
+        });
+        console.log(this.pat)
       })
   }
 }
@@ -407,17 +456,12 @@ export default {
   padding: 5px;
   border-radius: 5px;
 }
-#emp3 {
+.emp3 {
   background-color: #fff9f1;
   color: #fff9f1;
 }
-#emp3 #taux {
-  background-color: #fff9f1;
+.emp3 {
   color: #f5981f;
-}
-#emp3 #number {
-  background-color: #fff9f1;
-  color: #000;
 }
 .statistique {
   display: flex;
