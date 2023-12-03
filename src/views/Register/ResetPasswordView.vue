@@ -10,7 +10,6 @@
             alt="Visionette Optique"
           />
           <div class="menuConnect">
-            <!-- <a style="color:rgb(92, 11, 167); font-size:13px; display:flex; justify-content:baseline; align-items:center" href="/"><img style="transform:rotate(-90deg)" src="../../assets/av.png" alt="" width="13"> Retour</a>  -->
           </div>
           <form @submit.prevent="enregistrer" class="inscription">
             <p id="texte">Modifier le mot de passe</p>
@@ -53,6 +52,7 @@
       const headers = {
           "Content-Type": "application/json",
           "Accept": "application/json",
+          'Authorization': `Bearer ${data.token}`
       };
 
       fetch(url, {
@@ -61,6 +61,7 @@
           body: JSON.stringify(data),
       }).then(response => response.json())
       .then( body => {
+        console.log(data)
         console.log(body)
       })
      }
