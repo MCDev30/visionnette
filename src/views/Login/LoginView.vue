@@ -23,7 +23,6 @@ export default {
       .then(response => response.json())
       .then((body) => {
         console.log(body);
-        localStorage.setItem('token',body.body.token)
         if (body.success) {
           console.log('Login successful!')
           localStorage.setItem('admin_mail', this.email)
