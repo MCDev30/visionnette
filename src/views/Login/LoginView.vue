@@ -27,6 +27,7 @@ export default {
           console.log('Login successful!')
           localStorage.setItem('admin_mail', this.email)
           localStorage.setItem('isChecked', false)
+          localStorage.setItem('token', body.body.token)
           setTimeout(window.location.href = "/dashboard", 100)
         } else {
           console.log('Login not successful! Try again')
