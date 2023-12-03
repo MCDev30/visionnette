@@ -104,7 +104,7 @@
                   <img
                     src="../../assets/av.png"
                     alt=""
-                  />{{ percent2 }}%
+                  />{{ len !==0  ? percent2 : "0"}}%
                 </p>
               </div>
             </div>
@@ -138,13 +138,13 @@
               <div class="cardContainer">
                 <p id="title">Total de verres vendu</p>
                 <div class="discover">
-                  <p id="number">{{ len }}</p>
+                  <p id="number">{{ len === NaN ? '0' : len }}</p>
                   <p id="taux">
                     <img
                       src="../../assets/av.png"
                       alt=""
                     />
-                    {{ percent }}%
+                    {{ len !==0  ? percent : "0" }}%
                   </p>
                 </div>
               </div>

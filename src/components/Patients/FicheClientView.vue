@@ -186,6 +186,10 @@
                       <h4>Date de livraison</h4>
                       <input type="date" id="date" v-model="date_livraison" />
                     </div>
+                    <div class="livraison" style="margin-top:-30px">
+                      <h4>Date d'enrégistrement</h4>
+                      <input type="datetime-local" id="date" v-model="date_enr" />
+                    </div>
                   </div>
                 </div>
               </form>
@@ -225,7 +229,8 @@ export default {
       solde: "",
       verre_type: "",
       pid:"",
-      pass:""
+      pass:"",
+      date_enr:""
     }
   },
   mounted() {
@@ -287,6 +292,7 @@ export default {
                 this.montant= data.montant,
                 this.solde= data.solde,
                 this.verre_type= data.verre_type
+                this.date_enr= data.date_save
               }
             })
           } else {
@@ -313,7 +319,8 @@ export default {
           price:this.price,
           reference:this.reference,
           right_eye_vl_correction:this.right_eye_vl_correction,
-          right_eye_vp_correction:this.right_eye_vp_correction
+          right_eye_vp_correction:this.right_eye_vp_correction,
+          date_save: this.date_enr
         }
         const new_data_paiement = {
           patient_id: this.pid,

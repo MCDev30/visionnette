@@ -111,7 +111,7 @@
                       <input id="in" type="text" placeholder="VP" v-model="right_vp">
                     </div>
                   </div>
-                  <input type="text" placeholder="Traitement" v-model="traitement"/>
+                  <input type="datetime-local" placeholder="Date d'enregistrement" v-model="traitement"/>
                   <!-- <input type="text" placeholder="Type de verres" v-model="type_verre"/>
                   <input type="text" placeholder="Montant" v-model="montant"/> -->
                   <div class="liens">

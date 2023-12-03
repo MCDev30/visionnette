@@ -134,7 +134,7 @@
                   <table>
                     <tr>
                       <td>Correction</td>
-                      <td>Traitement</td>
+                      <td>Enrégistrement</td>
                       <td>Type de verres</td>
                       <!-- <td>Montant</td> -->
                     </tr>
@@ -158,7 +158,7 @@
                       </td>
 
                       <td>
-                        <input id="large" type="text" placeholder="none" v-model="treat">
+                        <input id="large" type="datetime-local" placeholder="none" v-model="treat">
                       </td>
                       <td>
                         <input id="large" type="text" placeholder="none" v-model="verreType" disabled>
@@ -207,7 +207,6 @@ export default {
       montant:localStorage.getItem('total'),
       nbre:parseInt(sessionStorage.getItem('nbre')),
       current: sessionStorage.getItem('user')
-
     }
   },
   methods: {
@@ -226,6 +225,7 @@ export default {
         left_eye_vp_correction:this.lftvp,
         right_eye_vl_correction:this.rghvl,
         right_eye_vp_correction:this.rghvp,
+        date_save: this.treat
       }
 
       fetch('https://laravel.lazonebleue.com/api/patients', {

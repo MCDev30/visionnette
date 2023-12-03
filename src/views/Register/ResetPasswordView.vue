@@ -115,7 +115,7 @@
   margin-top: 0;
   margin-left: 150px;
 }
-.secondCard {
+/* .secondCard {
   width: 336px;
   height: 336px;
   background-color: #250132;
@@ -123,7 +123,7 @@
   z-index: 20;
   margin-top: -160px;
   margin-left: 178px;
-}
+} */
 .img img {
   width: 433px;
   height: 447px;
@@ -132,7 +132,7 @@
   margin-top: -260px;
   margin-left: 246px;
 }
-.thirdCard {
+/* .thirdCard {
   width: 402px;
   height: 644px;
   border-radius: 10px;
@@ -141,7 +141,7 @@
   margin-top: 10px;
   margin-right: 197px;
   z-index: 1;
-}
+} */
 .form {
   width: 410px;
   height: 644px;
