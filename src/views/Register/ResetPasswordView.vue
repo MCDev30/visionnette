@@ -63,8 +63,9 @@
           body: JSON.stringify(data),
       }).then(response => response.json())
       .then( body => {
-        console.log(data)
-        console.log(body)
+        if (body.success){
+          window.location.href = "/"
+        }
       })
      }
   },
