@@ -36,6 +36,8 @@
   },
   mounted(){
     this.email = this.$route.params.email ? this.$route.params.email : ''
+    console.log(this.email)
+    console.log(this.$route.params.token)
   },
   methods: {
     enregistrer() {
@@ -78,6 +80,7 @@
   text-decoration: none;
   list-style: none;
   padding: 30px;
+  margin-left: 100%;
 }
 #router {
   color: #000;
