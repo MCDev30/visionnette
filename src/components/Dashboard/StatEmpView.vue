@@ -102,7 +102,7 @@
                       src="https://s3-alpha-sig.figma.com/img/cc78/b2c2/0adf3f319348197045a276c8df8b22e1?Expires=1701648000&Signature=n2Vi2i3WMOh6C1JD3AHLb-EOX7wjKBP22FHug8sn40rPw2MAIgnvy8ckw5Jd2zoGAZ4r5zZCHU2CVdEahah27xxxYm90Q~Emk51PPq4jZ10TelmDBAnjDxAQyj0VVcmVgN0rSgP6AHrdeyD3sEFoKMp~ujjfusozIUFbl4e~BMSkMi~1XtjMAXsDBRpFbLEgXIvMyJwctZKzLka9GS8wZ5X9ibyXhr3yGKDvFODumRsnmRPljKCepiB6VtSlXmPvkuaQUwW~D5qeYuO07mpZA-3U5cJL2Y4pdHCMJm004ag~6EJ1usge8NLqaAp5DIQPp3shQhCvaiPC6vDqhDjiHA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
                       alt=""
                     />
-                    {{ percent }}%
+                    {{ len !== 0 ? percent : '0' }}%
                   </p>
                 </div>
               </div>
