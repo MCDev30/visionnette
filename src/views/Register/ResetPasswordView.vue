@@ -10,6 +10,7 @@
             alt="Visionette Optique"
           />
           <div class="menuConnect">
+            <a style="color:rgb(92, 11, 167); font-size:13px; display:flex; justify-content:baseline; align-items:center" href="/"><img style="transform:rotate(-90deg)" src="../../assets/av.png" alt="" width="13"> Retour</a> 
           </div>
           <!-- <div class="voyant"></div> -->
           <form @submit.prevent="enregistrer" class="inscription">
