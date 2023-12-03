@@ -79,7 +79,7 @@ export default {
               <span>Se rappeler de moi</span>
             </div>
             <div class="droit" style="margin-left: -50px; cursor:pointer">
-              <p><a href="/password-reset/token/email">Modifier le mot de passe</a></p>
+              <p><a href="/password-reset/:token/:email">Modifier le mot de passe</a></p>
             </div>
           </div>
         </div>
