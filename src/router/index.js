@@ -23,9 +23,10 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/password-reset',
+      path: '/password-reset/:token/:email',
       name: 'reset-password',
-      component: ResetPasswordView
+      component: ResetPasswordView,
+      props: true,
     },
     {
       path: '/',

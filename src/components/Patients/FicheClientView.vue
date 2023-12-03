@@ -264,6 +264,7 @@ export default {
                 this.phone_number=data.phone_number,
                 this.price=data.price,
                 this.reference = data.reference,
+                this.date_enr= data.date_save,
                 this.right_eye_vl_correction=data.right_eye_vl_correction,
                 this.right_eye_vp_correction=data.right_eye_vp_correction
               }
@@ -292,7 +293,6 @@ export default {
                 this.montant= data.montant,
                 this.solde= data.solde,
                 this.verre_type= data.verre_type
-                this.date_enr= data.date_save
               }
             })
           } else {

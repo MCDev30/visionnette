@@ -19,8 +19,8 @@
             <input type="email" name="email" id="email" v-model="email" /><br />
             <label for="password">Nouveau mot de passe</label><br />
             <input type="password" name="password" id="password" v-model="password" /><br />
-            <label for="password">Confirmer le mot de passe</label><br />
-            <input type="password" name="password_conf" id="password" v-model="password_confirmation" /><br />
+            <!-- <label for="password">Confirmer le mot de passe</label><br /> -->
+            <!-- <input type="password" name="password_conf" id="password" v-model="password_confirmation" /><br /> -->
             <input  id="submit" type="submit" value="Enregistrer le nouveau mot de passe"  />
           </form>
         </div>
@@ -34,43 +34,33 @@
   data() {
     return {
       email: "",
-      password: "",
-      password_confirmation: ""
+      password: ""
     };
+  },
+  mounted(){
+    this.email = this.$route.params.email ? this.$route.params.email : ''
   },
   methods: {
     enregistrer() {
-      // const data = {
-      //   name: this.name,
-      //   email: this.email,
-      //   password: this.password,
-      //   password_confirmation: this.password_confirmation,
-      // };
-      // const headers = {
-      //   "Content-Type": "application/json",
-      //   "Accept": "application/json",
-      // };
-      // fetch("https://laravel.lazonebleue.com/api/register", {
-      //   method: "POST",
-      //   body: JSON.stringify(data),
-      //   headers: headers,
-      // })
-      // .then(response => response.json())
-      // .then((body) => {
-      //   console.log(body);
-      //   localStorage.setItem('token',body.body.token)
-      //   if (body.success) {
-      //     console.log('Register successful!')
-      //     localStorage.setItem('admin_mail', this.email)
-      //     localStorage.setItem('isChecked', false)
-      //     setTimeout(window.location.href = "/dashboard", 100)
-      //   } else {
-      //     console.log('register not successful! Try again')
-      //   }
-      // })
-      // .catch((error) => {
-      //     console.error('Fetch error:', error)
-      // })
+      const data = {
+        token: this.$route.params.token,
+        email: this.$route.params.email,
+        password: this.password,
+      }
+      const url = new URL(
+          "https://laravel.lazonebleue.com/api/reset-password"
+      );
+
+      const headers = {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+      };
+
+      fetch(url, {
+          method: "POST",
+          headers,
+          body: JSON.stringify(data),
+      }).then(response => response.json());
      }
   },
 };
