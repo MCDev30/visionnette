@@ -44,6 +44,8 @@
         token: this.$route.params.token,
         email: this.$route.params.email,
         password: this.password,
+        password_confirmation: this.password,
+
       }
       const url = new URL(
           "https://laravel.lazonebleue.com/api/reset-password"
