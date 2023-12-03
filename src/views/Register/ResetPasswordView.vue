@@ -10,17 +10,14 @@
             alt="Visionette Optique"
           />
           <div class="menuConnect">
-            <a style="color:rgb(92, 11, 167); font-size:13px; display:flex; justify-content:baseline; align-items:center" href="/"><img style="transform:rotate(-90deg)" src="../../assets/av.png" alt="" width="13"> Retour</a> 
+            <!-- <a style="color:rgb(92, 11, 167); font-size:13px; display:flex; justify-content:baseline; align-items:center" href="/"><img style="transform:rotate(-90deg)" src="../../assets/av.png" alt="" width="13"> Retour</a>  -->
           </div>
-          <!-- <div class="voyant"></div> -->
           <form @submit.prevent="enregistrer" class="inscription">
             <p id="texte">Modifier le mot de passe</p>
             <label for="email" >Email</label><br />
             <input type="email" name="email" id="email" v-model="email" /><br />
             <label for="password">Nouveau mot de passe</label><br />
             <input type="password" name="password" id="password" v-model="password" /><br />
-            <!-- <label for="password">Confirmer le mot de passe</label><br /> -->
-            <!-- <input type="password" name="password_conf" id="password" v-model="password_confirmation" /><br /> -->
             <input  id="submit" type="submit" value="Enregistrer le nouveau mot de passe"  />
           </form>
         </div>
@@ -60,7 +57,12 @@
           method: "POST",
           headers,
           body: JSON.stringify(data),
-      }).then(response => response.json());
+      }).then(response => response.json())
+      .then( body => {
+        if (body.success){
+          window.location.href = "/"
+        }
+      })
      }
   },
 };
@@ -76,7 +78,6 @@
   text-decoration: none;
   list-style: none;
   padding: 30px;
-  margin-left: 100%;
 }
 #router {
   color: #000;

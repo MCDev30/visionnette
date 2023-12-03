@@ -173,7 +173,7 @@
           <div  class="topVendeur" v-if="current_user === 'admin'">
             <p id="title">Top vendeur</p>
             <!-- eslint-disable-next-line vue/require-v-for-key -->
-            <div v-for="elm in pat" class="employe">
+            <div v-for="elm in pat2" class="employe">
               <div class="discovery">
                 <p id="number">{{ elm.name }}</p>
                 <p id="taux">
@@ -268,7 +268,8 @@ export default {
       len2: 0,
       percent2:0,
       total2:0,
-      pat:[]
+      pat:[],
+      pat2:[]
     }
   },
   methods: {
@@ -376,12 +377,18 @@ export default {
           .then(body => {
             if (body.success) {
               if (body.body) {
-                console.log(body.body)
-                this.pat.push({
-                  name: body.body[0].user.name,
-                  percent: (body.body[0].sells.length/this.len).toFixed(2),
-                  caractere: body.body[0].sells.length/this.len > 0.2 ? 'plus' : "minus"
-                })
+                // console.log(body.body)
+                if (body.body[0].user.profil_id !== 1){
+                  this.pat.push({
+                    name: body.body[0].user.name,
+                    percent: ((body.body[0].sells.length/this.len).toFixed(2))*100,
+                    caractere: body.body[0].sells.length/this.len > 0.2 ? 'plus' : "minus"
+                  })
+                for (let index = 0; index < 3; index++) {
+                  this.pat2.push(this.pat[index])
+                }
+                }
+                
               }
             }
             else{
@@ -389,7 +396,7 @@ export default {
             }
           })  
         });
-        console.log(this.pat)
+        console.log(this.pat2)
       })
   }
 }

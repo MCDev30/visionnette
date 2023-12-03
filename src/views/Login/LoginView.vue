@@ -61,10 +61,7 @@ export default {
             alt="Visionette Optique"
           />
           <div class="menuConnect" style="margin-top: 30px;">
-            <!-- <RouterLink to="/"><button id="router">S’enregistrer</button></RouterLink>
-            <RouterLink to="/login"><button id="router">Se connecter</button></RouterLink> -->
           </div>
-          <!-- <div class="voyant"></div> -->
           <form @submit.prevent="envoyer" class="connexion">
             <p id="texte" style="text-align:center">Se connecter</p>
             <label for="email">Email</label><br />
@@ -79,7 +76,7 @@ export default {
               <span>Se rappeler de moi</span>
             </div>
             <div class="droit" style="margin-left: -50px; cursor:pointer">
-              <p><a href="/password-reset/:token/:email">Modifier le mot de passe</a></p>
+              <p><a href="/forgot-password">Modifier le mot de passe</a></p>
             </div>
           </div>
         </div>

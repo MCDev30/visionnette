@@ -120,9 +120,9 @@
                       <!-- <RouterLink to=""></RouterLink> -->
                     </div>
                   </td>
-                  <td>{{ elm.sells[0] ? elm.sells[0].date_livraison : "Paiement non effectué"}}</td>
-                  <td>{{elm.sells[0] ? parseInt(elm.sells[0].date_livraison.split('-')[0])  + 2 + '-' + elm.sells[0].date_livraison.split('-')[1] + '-' + elm.sells[0].date_livraison.split('-')[2] : "Paiement non effectué"}} </td>
-                  <td>{{ elm.user.name === "admin" ? "ADMINISTRATEUR" : elm.user.name}}</td>
+                  <td>{{ elm.date_save }}</td>
+                  <td>{{ (parseInt(elm.date_save.split(' ')[0].split('-')[0]) + 2) + '-' + elm.date_save.split(' ')[0].split('-')[1] + '-' + elm.date_save.split(' ')[0].split('-')[2] + '-' + elm.date_save.split(' ')[1] }} </td>
+                  <td>{{ elm.user.name === "admin" ? "ADMINISTRATEUR" : elm.user.name }}</td>
                   <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elm.id)">Supprimer</td>
                 </tr>
                 <tr v-else id="liste" v-for="elmt in pat" :key="elmt.id" :class="[elmt.color % 2 == 1 ? 'violet' : 'yellow']">
@@ -134,9 +134,8 @@
                       <p style="cursor:pointer" @click="modify(elmt.id, '/fiche-paiement')">Fiche de paiement</p>
                     </div>
                   </td>
-                  <td>{{ elmt.sells[0] ? elmt.sells[0].date_livraison : "Paiement non effectué"}}</td>
-                  <td>{{elmt.sells[0] ? parseInt(elmt.sells[0].date_livraison.split('-')[0])  + 2 + '-' + elmt.sells[0].date_livraison.split('-')[1] + '-' + elmt.sells[0].date_livraison.split('-')[2] : "Paiement non effectué"}} </td>
-                  <!-- <td>{{ elmt.user.name === "admin" ? "ADMINISTRATEUR" : elmt.user.name}}</td> -->
+                  <td>{{ elmt.date_save }}</td>
+                  <td>{{ (parseInt(elmt.date_save.split(' ')[0].split('-')[0]) + 2) + '-' + elmt.date_save.split(' ')[0].split('-')[1] + '-' + elmt.date_save.split(' ')[0].split('-')[2] + '-' + elmt.date_save.split(' ')[1] }} </td>
                   <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elmt.id)">Supprimer</td>
                 </tr>
               </table>
