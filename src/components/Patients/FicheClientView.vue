@@ -266,7 +266,7 @@ export default {
                 this.price=data.price,
                 this.reference = data.reference,
                 this.date_enr= data.date_save,
-                this.traitement = data.treatment
+                this.traitement = data.treatment,
                 this.right_eye_vl_correction=data.right_eye_vl_correction,
                 this.right_eye_vp_correction=data.right_eye_vp_correction
               }
@@ -322,7 +322,8 @@ export default {
           reference:this.reference,
           right_eye_vl_correction:this.right_eye_vl_correction,
           right_eye_vp_correction:this.right_eye_vp_correction,
-          date_save: this.date_enr
+          date_save: this.date_enr,
+          treatment: this.traitement,
         }
         const new_data_paiement = {
           patient_id: this.pid,
@@ -362,6 +363,9 @@ export default {
         .then(body => {
           if (body.success & this.pass > 0) {
               window.location.href = '/patients'
+          }
+          else{
+            alert("Erreur lors de la mise à jour")
           }
         })
       } else {
