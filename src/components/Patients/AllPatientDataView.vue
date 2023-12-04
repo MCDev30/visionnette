@@ -135,7 +135,7 @@
                     <tr>
                       <td>Correction</td>
                       <td>Enrégistrement</td>
-                      <td>Type de verres</td>
+                      <td>Traitement</td>
                       <!-- <td>Montant</td> -->
                     </tr>
                     <tr>
@@ -158,10 +158,10 @@
                       </td>
 
                       <td>
-                        <input id="large" type="datetime-local" placeholder="none" v-model="treat">
+                        <input id="large" type="datetime-local" placeholder="none" v-model="date">
                       </td>
                       <td>
-                        <input id="large" type="text" placeholder="none" v-model="verreType" disabled>
+                        <input id="large" type="text" placeholder="none" v-model="treat" disabled>
                       </td>
                       <td>
                         <!-- <input id="large" type="text" placeholder="none" v-model="montant" disabled> -->
@@ -202,7 +202,8 @@ export default {
       lftvp:localStorage.getItem('left_eye_vp_correction'),
       rghvl:localStorage.getItem('right_eye_vl_correction'),
       rghvp:localStorage.getItem('right_eye_vp_correction'),
-      treat:localStorage.getItem('treatment'),
+      treat:localStorage.getItem('treat'),
+      date: localStorage.getItem('date'),
       verreType:localStorage.getItem('type_verre'),
       montant:localStorage.getItem('total'),
       nbre:parseInt(sessionStorage.getItem('nbre')),
@@ -225,7 +226,8 @@ export default {
         left_eye_vp_correction:this.lftvp,
         right_eye_vl_correction:this.rghvl,
         right_eye_vp_correction:this.rghvp,
-        date_save: this.treat
+        date_save: this.date,
+        treatment: this.treat
       }
 
       fetch('https://laravel.lazonebleue.com/api/patients', {

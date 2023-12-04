@@ -230,7 +230,8 @@ export default {
       verre_type: "",
       pid:"",
       pass:"",
-      date_enr:""
+      date_enr:"",
+      traitement: ''
     }
   },
   mounted() {
@@ -265,6 +266,7 @@ export default {
                 this.price=data.price,
                 this.reference = data.reference,
                 this.date_enr= data.date_save,
+                this.traitement = data.treatment
                 this.right_eye_vl_correction=data.right_eye_vl_correction,
                 this.right_eye_vp_correction=data.right_eye_vp_correction
               }

@@ -111,14 +111,12 @@
                       <input id="in" type="text" placeholder="VP" v-model="right_vp">
                     </div>
                   </div>
-                  <input type="datetime-local" placeholder="Date d'enregistrement" v-model="traitement"/>
-                  <!-- <input type="text" placeholder="Type de verres" v-model="type_verre"/>
-                  <input type="text" placeholder="Montant" v-model="montant"/> -->
+                  <input type="datetime-local" placeholder="Date d'enregistrement" v-model="date"/>
+                  <input type="text" placeholder="Traitement" v-model="treatment"/> 
                   <div class="liens">
                   <button id="submit" type="submit">
                     <RouterLink to="/etape-3"><p id="tex">Précédent</p></RouterLink>
                   </button>
-
                   <button id="submit" type="submit">
                     <p id="tex">Suivant</p>
                   </button>
@@ -142,13 +140,12 @@
         left_vp: localStorage.getItem('left_eye_vp_correction') ? localStorage.getItem('left_eye_vp_correction') : "",
         right_vl: localStorage.getItem('right_eye_vl_correction') ? localStorage.getItem('right_eye_vl_correction') : "",
         right_vp: localStorage.getItem('right_eye_vp_correction') ? localStorage.getItem('right_eye_vp_correction') : "",
-        traitement: localStorage.getItem('treatment') ? localStorage.getItem('treatment') : "",
+        date: localStorage.getItem('date') ? localStorage.getItem('date') : "",
+        treatment: localStorage.getItem('treat') ? localStorage.getItem('treat') : "",
         type_verre: localStorage.getItem('type_verre') ? localStorage.getItem('type_verre') : "",
         montant: localStorage.getItem('total') ? localStorage.getItem('total') : "",
         nbre:parseInt(sessionStorage.getItem('nbre')),
         current: sessionStorage.getItem('user')
-
-
       }
     },
     methods: {
@@ -157,7 +154,8 @@
         localStorage.setItem('left_eye_vp_correction', this.left_vp),
         localStorage.setItem('right_eye_vl_correction', this.right_vl),
         localStorage.setItem('right_eye_vp_correction', this.right_vp),
-        localStorage.setItem('treatment', this.traitement),
+        localStorage.setItem('treat', this.treatment),
+        localStorage.setItem('date', this.date),
         localStorage.setItem('type_verre', this.type_verre),
         localStorage.setItem('total', this.montant)
         window.location.href = '/send'
