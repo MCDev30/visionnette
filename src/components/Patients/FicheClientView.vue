@@ -190,6 +190,10 @@
                       <h4>Date d'enrégistrement</h4>
                       <input type="datetime-local" id="date" v-model="date_enr" />
                     </div>
+                    <div class="livraison" style="margin-top:-30px">
+                      <h4>Montant (Monture + Verre)</h4>
+                      <input type="numeric" id="date" disabled v-model="sld" />
+                    </div>
                   </div>
                 </div>
               </form>
@@ -231,7 +235,10 @@ export default {
       pid:"",
       pass:"",
       date_enr:"",
-      traitement: ''
+      traitement: "",
+      sld1:0,
+      sld2:0,
+      sld:0
     }
   },
   mounted() {
@@ -251,9 +258,9 @@ export default {
         .then((response) => response.json())
         .then((body) => {
           if (body.success) {
+            // console.log(body.body)
             body.body.forEach((data) => {
               if (data.id === this.patient_id) {
-                // console.log(data)
                 localStorage.setItem('id_paiement', data.id)
                 this.color=data.color,
                 this.email=data.email,
@@ -269,6 +276,7 @@ export default {
                 this.traitement = data.treatment,
                 this.right_eye_vl_correction=data.right_eye_vl_correction,
                 this.right_eye_vp_correction=data.right_eye_vp_correction
+                this.sld += parseFloat(data.price)
               }
             })
           } else {
@@ -284,10 +292,11 @@ export default {
         headers: header
       }).then((response) => response.json())
       .then(body => {
+        // console.log(body.body)
         if (body.success) {
             body.body.forEach((data) => {
               if (data.patient_id === this.patient_id) {
-                console.log(data.id)
+                // console.log(data.patient_id)
                 this.pid = data.id
                 this.isPaid = true
                 this.acompte= data.acompte,
@@ -295,11 +304,12 @@ export default {
                 this.montant= data.montant,
                 this.solde= data.solde,
                 this.verre_type= data.verre_type
+                this.sld += parseFloat(data.montant.split(".00")[0])
               }
             })
           } else {
             console.error('Failed', body)
-          }
+          } 
       })
       .catch((error) => {
           console.error('Fetch error:', error)
@@ -309,32 +319,33 @@ export default {
       if (this.isPaid) {
         const new_data_patient = {
           user_id:sessionStorage.getItem('user_id_patient'),
-          patient_id: parseInt(localStorage.getItem('patient_id')),
+          // patient_id: parseInt(localStorage.getItem('patient_id')),
           color:this.color,
           email:this.email,
           first_name:this.first_name,
           frame:this.frame,
           last_name:this.last_name,
-          left_eye_vl_correction:this.left_eye_vl_correction,
-          left_eye_vp_correction:this.left_eye_vp_correction,
+          left_eye_vl_correction:this.left_eye_vl_correction ? this.left_eye_vl_correction : "-",
+          left_eye_vp_correction:this.left_eye_vp_correction ? this.left_eye_vp_correction : "-",
           phone_number:this.phone_number,
           price:this.price,
           reference:this.reference,
-          right_eye_vl_correction:this.right_eye_vl_correction,
-          right_eye_vp_correction:this.right_eye_vp_correction,
+          right_eye_vl_correction:this.right_eye_vl_correction ? this.right_eye_vl_correction : "-",
+          right_eye_vp_correction:this.right_eye_vp_correction ? this.right_eye_vp_correction : "-",
           date_save: this.date_enr,
           treatment: this.traitement,
         }
+
         const new_data_paiement = {
-          patient_id: this.pid,
+          patient_id: parseInt(localStorage.getItem('patient_id')),
           verre_type: this.verre_type,
           montant: this.montant,
           acompte: this.acompte,
           solde: this.solde,
           date_livraison: this.date_livraison
-        }
+        }        
         const url1 = new URL(
-            `https://laravel.lazonebleue.com/api/patients/${new_data_patient.patient_id}`
+            `https://laravel.lazonebleue.com/api/patients/${localStorage.getItem('id_paiement')}`
         );
         const url2 = new URL(
             `https://laravel.lazonebleue.com/api/sells/${this.pid}`
@@ -351,6 +362,7 @@ export default {
             body: JSON.stringify(new_data_patient),
         }).then(response => response.json())
           .then(body => {
+            console.log(body)
             if (body.success) {
               this.pass = this.pass + 1
             }

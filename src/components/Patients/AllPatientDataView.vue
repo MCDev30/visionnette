@@ -222,10 +222,10 @@ export default {
         reference:this.reference,
         color:this.couleur,
         price:this.prix,
-        left_eye_vl_correction:this.lftvl,
-        left_eye_vp_correction:this.lftvp,
-        right_eye_vl_correction:this.rghvl,
-        right_eye_vp_correction:this.rghvp,
+        left_eye_vl_correction:this.lftvl ? this.lftvl : "-",
+        left_eye_vp_correction:this.lftvp ? this.lftvp : "-",
+        right_eye_vl_correction:this.rghvl ? this.rghvl : "-",
+        right_eye_vp_correction:this.rghvp ? this.rghvp : "-",
         date_save: this.date,
         treatment: this.treat
       }

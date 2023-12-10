@@ -63,12 +63,14 @@
       <div class="bottomPanel">
         <div class="patients">
           <div class="searchContainer">
-            <div class="left" style="visibility: hidden;">
-              <div class="search">
-                <input type="text" placeholder="Rechercher" />
-                <img src="../../assets/Vector.png" />
-              </div>
-              <div class="filter">
+            <div class="left">
+              <form @submit.prevent="makeSearch" >
+                <div class="search">
+                  <input type="text" placeholder="Rechercher" style="width:300px" v-model="search_text"/>
+                  <button style="border:none; background-color:transparent" type="submit"><img  src="../../assets/Vector.png" /></button>
+                </div>
+              </form>
+              <div class="filter" style="visibility: hidden;">
                 <span>Classer par</span>
                 <select class="choice" name="choice">
                   <option value="first" selected>Date de renouvellement</option>
@@ -97,8 +99,9 @@
                 </p>
               </div>
             </div>
+
             <div v-else class="listePatient">
-              <table>
+              <table v-if="mks === false">
                 <tr>
                   <td>Nom et Prénoms</td>
                   <td>Contact</td>
@@ -130,7 +133,7 @@
                   <td>{{ elmt.phone_number ? elmt.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>
                     <div class="action">
-                      <p style="margin-bottom: 10px; cursor:pointer" @click="modify(elm.id, '/donnee-patient')">Données du client</p>
+                      <p style="margin-bottom: 10px; cursor:pointer" @click="modify(elmt.id, '/donnee-patient')">Données du client</p>
                       <p style="cursor:pointer" @click="modify(elmt.id, '/fiche-paiement')">Fiche de paiement</p>
                     </div>
                   </td>
@@ -139,7 +142,36 @@
                   <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elmt.id)">Supprimer</td>
                 </tr>
               </table>
+
+
+              <table v-else>
+                <tr>
+                  <td>Nom et Prénoms</td>
+                  <td>Contact</td>
+                  <td>Fiches client</td>
+                  <td>Date de livraison</td>
+                  <td>Date de renouvellement</td>
+                  <td>Action</td>
+                </tr>
+                <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
+
+                <tr id="liste" v-for="elmt in searchList" :key="elmt.id" :class="[elmt.color % 2 == 1 ? 'violet' : 'yellow']">
+                  <td>{{ elmt.last_name.toUpperCase()}} {{ elmt.first_name }} </td>
+                  <td>{{ elmt.phone_number}}</td>
+                  <td>
+                    <div class="action">
+                      <p style="margin-bottom: 10px; cursor:pointer" @click="modify(elmt.id, '/donnee-patient')">Données du client</p>
+                      <p style="cursor:pointer" @click="modify(elmt.id, '/fiche-paiement')">Fiche de paiement</p>
+                    </div>
+                  </td>
+                  <td>{{ elmt.date_save }}</td>
+                  <td>{{ (parseInt(elmt.date_save.split(' ')[0].split('-')[0]) + 2) + '-' + elmt.date_save.split(' ')[0].split('-')[1] + '-' + elmt.date_save.split(' ')[0].split('-')[2] + '-' + elmt.date_save.split(' ')[1] }} </td>
+                  <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elmt.id)">Supprimer</td>
+                </tr>
+              </table>
+
             </div>
+
           </div>
         </div>
       </div>
@@ -156,7 +188,10 @@ export default {
       pat: [], 
       patient:"",
       current: sessionStorage.getItem('user'),
-      nbre:0
+      nbre:0,
+      mks: false,
+      search_text:"",
+      searchList:[]
     }
   },
   mounted() {
@@ -189,7 +224,7 @@ export default {
         
       })
   
-      const url2 = new URL(
+    const url2 = new URL(
     "https://laravel.lazonebleue.com/api/get_all_patients"
       );
       fetch(url2, {
@@ -260,6 +295,34 @@ export default {
         body
         window.location.reload()
       })
+    },
+    makeSearch(){
+      if (this.search_text === "") {
+        this.mks = false
+      } else {
+        this.searchList = []
+        this.mks = true
+        const url2 = new URL(
+        "https://laravel.lazonebleue.com/api/get_all_patients"
+          );
+          const headers = {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+          fetch(url2, {
+              method: "GET",
+              headers,
+          }).then(response => response.json())
+          .then(body => {
+            body.body.forEach(patient => {
+              if ((patient.last_name + patient.first_name).toUpperCase().includes(this.search_text.toUpperCase())) {
+                this.searchList.push(patient)
+              }
+            });
+            console.log(this.searchList)
+        })
+      }
     }
   }
 }
