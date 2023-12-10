@@ -113,6 +113,7 @@
                   </div>
                   <input type="datetime-local" placeholder="Date d'enregistrement" v-model="date"/>
                   <input type="text" placeholder="Traitement" v-model="treatment"/> 
+                  <input type="numeric" placeholder="Montant verre" v-model="mt_verre"/> 
                   <div class="liens">
                   <button id="submit" type="submit">
                     <RouterLink to="/etape-3"><p id="tex">Précédent</p></RouterLink>
@@ -145,7 +146,8 @@
         type_verre: localStorage.getItem('type_verre') ? localStorage.getItem('type_verre') : "",
         montant: localStorage.getItem('total') ? localStorage.getItem('total') : "",
         nbre:parseInt(sessionStorage.getItem('nbre')),
-        current: sessionStorage.getItem('user')
+        current: sessionStorage.getItem('user'),
+        mt_verre: localStorage.getItem('mt_verre') ? localStorage.getItem('mt_verre') : "",
       }
     },
     methods: {
@@ -157,7 +159,8 @@
         localStorage.setItem('treat', this.treatment),
         localStorage.setItem('date', this.date),
         localStorage.setItem('type_verre', this.type_verre),
-        localStorage.setItem('total', this.montant)
+        localStorage.setItem('total', this.montant),
+        localStorage.setItem('mt_verre', this.mt_verre)
         window.location.href = '/send'
       }
     }

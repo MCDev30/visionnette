@@ -182,6 +182,10 @@
                         </td> -->
                       </tr>
                     </table>
+                    <div class="livraison" style="margin-top:-30px">
+                      <h4>Montant Verre</h4>
+                      <input type="numeric" id="date" v-model="mt_verre" />
+                    </div>
                     <div class="livraison">
                       <h4>Date de livraison</h4>
                       <input type="date" id="date" v-model="date_livraison" />
@@ -190,10 +194,7 @@
                       <h4>Date d'enrégistrement</h4>
                       <input type="datetime-local" id="date" v-model="date_enr" />
                     </div>
-                    <div class="livraison" style="margin-top:-30px">
-                      <h4>Montant (Monture + Verre)</h4>
-                      <input type="numeric" id="date" disabled v-model="sld" />
-                    </div>
+
                   </div>
                 </div>
               </form>
@@ -238,7 +239,8 @@ export default {
       traitement: "",
       sld1:0,
       sld2:0,
-      sld:0
+      sld:0,
+      mt_verre:''
     }
   },
   mounted() {
@@ -275,7 +277,8 @@ export default {
                 this.date_enr= data.date_save,
                 this.traitement = data.treatment,
                 this.right_eye_vl_correction=data.right_eye_vl_correction,
-                this.right_eye_vp_correction=data.right_eye_vp_correction
+                this.right_eye_vp_correction=data.right_eye_vp_correction,
+                this.mt_verre = data.montant_verre
                 this.sld += parseFloat(data.price)
               }
             })
@@ -334,6 +337,7 @@ export default {
           right_eye_vp_correction:this.right_eye_vp_correction ? this.right_eye_vp_correction : "-",
           date_save: this.date_enr,
           treatment: this.traitement,
+          montant_verre: this.mt_verre
         }
 
         const new_data_paiement = {

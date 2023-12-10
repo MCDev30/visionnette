@@ -136,7 +136,7 @@
                       <td>Correction</td>
                       <td>Enrégistrement</td>
                       <td>Traitement</td>
-                      <!-- <td>Montant</td> -->
+                      <td>Montant verre</td>
                     </tr>
                     <tr>
                       <td>
@@ -164,7 +164,7 @@
                         <input id="large" type="text" placeholder="none" v-model="treat" disabled>
                       </td>
                       <td>
-                        <!-- <input id="large" type="text" placeholder="none" v-model="montant" disabled> -->
+                        <input id="large" type="text" placeholder="none" v-model="mt_verre">
                       </td>
                     </tr>
                   </table>
@@ -207,7 +207,8 @@ export default {
       verreType:localStorage.getItem('type_verre'),
       montant:localStorage.getItem('total'),
       nbre:parseInt(sessionStorage.getItem('nbre')),
-      current: sessionStorage.getItem('user')
+      current: sessionStorage.getItem('user'),
+      mt_verre: localStorage.getItem('mt_verre')
     }
   },
   methods: {
@@ -227,7 +228,8 @@ export default {
         right_eye_vl_correction:this.rghvl ? this.rghvl : "-",
         right_eye_vp_correction:this.rghvp ? this.rghvp : "-",
         date_save: this.date,
-        treatment: this.treat
+        treatment: this.treat,
+        montant_verre: this.mt_verre
       }
 
       fetch('https://laravel.lazonebleue.com/api/patients', {
