@@ -216,20 +216,20 @@ export default {
       const data={
         user_id: sessionStorage.getItem('user_id'),
         last_name:this.nom.toUpperCase(),
-        first_name:this.prenom,
-        email:this.Gmail,
-        phone_number:this.numero,
-        frame:this.monture,
-        reference:this.reference,
-        color:this.couleur,
-        price:this.prix,
+        first_name:this.prenom ? this.prenom : "-",
+        email:this.Gmail ? this.Gmail : "mail@indisponible.visionnete",
+        phone_number:this.numero ? this.numero : "-",
+        frame:this.monture ? this.monture :'-',
+        reference:this.reference ? this.reference :"-",
+        color:this.couleur ? this.couleur : "-",
+        price:this.prix ? this.prix : "-",
         left_eye_vl_correction:this.lftvl ? this.lftvl : "-",
         left_eye_vp_correction:this.lftvp ? this.lftvp : "-",
         right_eye_vl_correction:this.rghvl ? this.rghvl : "-",
         right_eye_vp_correction:this.rghvp ? this.rghvp : "-",
-        date_save: this.date,
-        treatment: this.treat,
-        montant_verre: this.mt_verre
+        date_save: this.date ? this.date : '-',
+        treatment: this.treat ? this.treat : "-",
+        montant_verre: this.mt_verre ? this.mt_verre : "-"
       }
 
       fetch('https://laravel.lazonebleue.com/api/patients', {
@@ -254,7 +254,7 @@ export default {
             setTimeout(window.location.href = "/patients" , 1000);
           } else {
             console.error('Failed', body)
-            console.log(data)
+            alert(body.message)
           }
         })
         .catch((error) => {

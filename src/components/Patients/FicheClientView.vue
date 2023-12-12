@@ -312,6 +312,7 @@ export default {
             })
           } else {
             console.error('Failed', body)
+            alert(body.message)
           } 
       })
       .catch((error) => {
@@ -324,7 +325,7 @@ export default {
           user_id:sessionStorage.getItem('user_id_patient'),
           // patient_id: parseInt(localStorage.getItem('patient_id')),
           color:this.color,
-          email:this.email,
+          email:this.email !== "" ? this.email :'mail@indisponible.visionnete',
           first_name:this.first_name,
           frame:this.frame,
           last_name:this.last_name,
@@ -378,10 +379,12 @@ export default {
         }).then(response => response.json())
         .then(body => {
           if (body.success & this.pass > 0) {
+              alert(body.message)
               window.location.href = '/patients'
           }
           else{
-            alert("Erreur lors de la mise à jour")
+            alert(body.message)
+            window.location.href = '/patients'
           }
         })
       } else {
