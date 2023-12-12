@@ -2,37 +2,26 @@
   <div class="container" v-bind:class="{ contain }">
     <section class="section">
       <div class="logo">
-        <img
-          class="logoOptique"
-          src="../../assets/logo.png"
-          alt="Visionette Optique"
-          width="168"
-        />
+        <img class="logoOptique" src="../../assets/logo.png" alt="Visionette Optique" width="168" />
       </div>
       <div class="menu">
         <RouterLink to="/dashboard">
           <div class="onglet" id="active">
-            <img
-              src="../../assets/dash-violet.png"
-            />
+            <img src="../../assets/dash-violet.png" />
             <p>Dashboard</p>
           </div>
         </RouterLink>
 
         <RouterLink to="/patients">
           <div class="onglet">
-            <img
-              src="../../assets/user-blanc.png"
-            />
+            <img src="../../assets/user-blanc.png" />
             <p>Patients</p>
           </div>
         </RouterLink>
 
         <RouterLink to="/notification">
           <div class="onglet">
-            <img
-              src="../../assets/notif-blanc.png"
-            />
+            <img src="../../assets/notif-blanc.png" />
             <p>Notifications</p>
             <p id="nbre" v-if="nbre">{{ nbre }}</p>
           </div>
@@ -40,9 +29,7 @@
 
         <RouterLink to="/disconnect">
           <div class="onglet">
-            <img
-              src="../../assets/logout-blanc.png"
-            />
+            <img src="../../assets/logout-blanc.png" />
             <p>Se déconnecter</p>
           </div>
         </RouterLink>
@@ -52,14 +39,11 @@
     <aside class="aside">
       <div class="topPanel">
         <div class="admin">
-          <img
-            src="../../assets/image.png"
-            alt=""
-          />
+          <img src="../../assets/image.png" alt="" />
         </div>
         <!-- bind the data from api -->
         <div class="infos">
-          <p v-if="current_user === 'admin'" >Administrateur</p>
+          <p v-if="current_user === 'admin'">Administrateur</p>
           <p v-else>Employé(e)</p>
           <p id="second">{{ email }}</p>
         </div>
@@ -69,19 +53,22 @@
         <div class="space"></div>
         <div class="toast">
           <img @click="toggleChecked" src="../../assets/Union.png" />
-          <p>Bienvenue {{ email }} !<br />Vous êtes connecté(e) en tant <span v-if="current_user === 'admin'" >qu'administrateur.</span>
-          <span v-else>qu'employé(e).</span></p>
+          <p>
+            Bienvenue {{ email }} !<br />Vous êtes connecté(e) en tant
+            <span v-if="current_user === 'admin'">qu'administrateur.</span>
+            <span v-else>qu'employé(e).</span>
+          </p>
         </div>
 
-        <div class="select_menu" >
-          <select class="choice" name="choice" style="visibility:hidden">
+        <div class="select_menu">
+          <select class="choice" name="choice" style="visibility: hidden">
             <option value="first" selected>Mensuel</option>
             <option value="second">Hebdomadaire</option>
             <option value="third">Journalier</option>
             <option value="third">Annuel</option>
           </select>
           <!-- bind data here -->
-          <div class="gestion" v-if="current_user === 'admin' ">
+          <div class="gestion" v-if="current_user === 'admin'">
             <RouterLink to="/employe"><p>Gérer les employés</p></RouterLink>
           </div>
         </div>
@@ -89,7 +76,7 @@
         <div v-if="current_user !== 'admin'" class="cardSlide">
           <div class="card">
             <div class="cardContainer">
-              <p id="title" >Ventes</p>
+              <p id="title">Ventes</p>
               <div class="discover">
                 <p id="number">{{ total2 }} <span>FCFA</span></p>
               </div>
@@ -101,10 +88,7 @@
               <div class="discover">
                 <p id="number">{{ len2 }}</p>
                 <p id="taux">
-                  <img
-                    src="../../assets/av.png"
-                    alt=""
-                  />{{ len !==0  ? percent2 : "0"}}%
+                  <img src="../../assets/av.png" alt="" />{{ len !== 0 ? percent2 : '0' }}%
                 </p>
               </div>
             </div>
@@ -113,88 +97,79 @@
             <div class="cardContainer">
               <p id="title">Taux de rétention</p>
               <div class="discover">
-                <p id="number">{{ len2 + '/'+ len2 }}</p>
+                <p id="number">{{ len2 + '/' + len2 }}</p>
                 <p id="taux">
-                  <img
-                    src="../../assets/av.png"
-                    alt=""
-                  />{{ len2 !== 0 ? '100%' : '0%' }}
+                  <img src="../../assets/av.png" alt="" />{{ len2 !== 0 ? '100%' : '0%' }}
                 </p>
               </div>
             </div>
           </div>
         </div>
         <div v-else class="cardSlide">
-            <div class="card">
-              <div class="cardContainer">
-                <p id="title" >Ventes</p>
-                <div class="discover">
-                  <p id="number">{{ total }} <span>FCFA</span></p>
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="cardContainer">
-                <p id="title">Total de verres vendu</p>
-                <div class="discover">
-                  <p id="number">{{ len === NaN ? '0' : len }}</p>
-                  <p id="taux">
-                    <img
-                      src="../../assets/av.png"
-                      alt=""
-                    />
-                    {{ len !==0  ? percent : "0" }}%
-                  </p>
-                </div>
-              </div>
-            </div>
-  
-            <div class="card">
-              <div class="cardContainer">
-                <p id="title">Taux de rétention</p>
-                <div class="discover">
-                  <p id="number">{{ len + '/'+ len }}</p>
-                  <p id="taux">
-                    <img
-                      src="../../assets/av.png"
-                      alt=""
-                    />{{ len !== 0 ? '100%' : '0%' }}
-                  </p>
-                </div>
+          <div class="card">
+            <div class="cardContainer">
+              <p id="title">Ventes</p>
+              <div class="discover">
+                <p id="number">{{ total }} <span>FCFA</span></p>
               </div>
             </div>
           </div>
 
+          <div class="card">
+            <div class="cardContainer">
+              <p id="title">Total de verres vendu</p>
+              <div class="discover">
+                <p id="number">{{ len === NaN ? '0' : len }}</p>
+                <p id="taux">
+                  <img src="../../assets/av.png" alt="" />
+                  {{ len !== 0 ? percent : '0' }}%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="cardContainer">
+              <p id="title">Taux de rétention</p>
+              <div class="discover">
+                <p id="number">{{ len + '/' + len }}</p>
+                <p id="taux">
+                  <img src="../../assets/av.png" alt="" />{{ len !== 0 ? '100%' : '0%' }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="statistique">
           <!-- eslint-disable-next-line vue/require-v-for-key -->
           <!-- eslint-disable-next-line vue/require-v-for-key -->
-          <div  class="topVendeur" v-if="current_user === 'admin'">
+          <div class="topVendeur" v-if="current_user === 'admin'" style="overflow: scroll">
             <p id="title">Top vendeur</p>
             <!-- eslint-disable-next-line vue/require-v-for-key -->
-            <div v-for="elm in pat2" class="employe">
+            <div v-for="elm in pat" class="employe">
               <div class="discovery">
                 <p id="number">{{ elm.name }}</p>
                 <p id="taux">
-                  <img v-if="elm.caractere === 'plus'"
-                    src="../../assets/av.png"
-                    alt=""
-                  />
-                  <img v-else
-                    src="../../assets/ay.png"
-                    alt=""
-                  />
-                  <span :class="[elm.caractere === 'plus' ? 'vio' : 'emp3']">{{ elm.percent }}%</span>
+                  <img v-if="elm.caractere === 'plus'" src="../../assets/av.png" alt="" />
+                  <img v-else src="../../assets/ay.png" alt="" />
+                  <span :class="[elm.caractere === 'plus' ? 'vio' : 'emp3']"
+                    >{{ elm.percent }}%</span
+                  >
                 </p>
-              </div>    
+              </div>
             </div>
           </div>
           <div v-if="current_user === 'admin'" class="graphique">
             <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
           </div>
-          <div v-else class="graphique" style="width:700px; height:320px">
-            <Bar style="width:715px; height:300px" id="my-chart-id" :options="chartOptions" :data="chartData" />
+          <div v-else class="graphique" style="width: 700px; height: 320px">
+            <Bar
+              style="width: 715px; height: 300px"
+              id="my-chart-id"
+              :options="chartOptions"
+              :data="chartData"
+            />
           </div>
         </div>
       </div>
@@ -259,50 +234,51 @@ export default {
         responsive: true
       },
       email: localStorage.getItem('admin_mail'),
-      current_user:'',
-      nbre:0,
-      total:0,
+      current_user: '',
+      nbre: 0,
+      total: 0,
       len: 0,
-      percent:0,
-      emp_id:sessionStorage.getItem('user_id') ? sessionStorage.getItem('user_id') : 0,
+      percent: 0,
+      emp_id: sessionStorage.getItem('user_id') ? sessionStorage.getItem('user_id') : 0,
       len2: 0,
-      percent2:0,
-      total2:0,
-      pat:[],
-      pat2:[]
+      percent2: 0,
+      total2: 0,
+      pat: [],
+      pat2: []
     }
   },
   methods: {
     toggleChecked() {
       document.querySelector('.toast').style.display = 'none'
       localStorage.setItem('isChecked', true)
-    }
+    },
   },
   mounted() {
     const url = new URL('https://laravel.lazonebleue.com/api/user')
     const headers = {
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
+      Accept: 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('token')}`
     }
     fetch(url, {
       method: 'GET',
       headers
-    }).then((response) => response.json())
-    .then(body => {
-      if (body.profil_id === 1) {
-        this.emp_id = body.id
-        this.current_user = 'admin'
-        sessionStorage.setItem('user', 'Administrateur')
-        sessionStorage.setItem('user_id', body.id)
-        console.log(body.id)
-      } else{
-        this.emp_id = body.id
-        this.current_user = 'employe'
-        sessionStorage.setItem('user', 'Employé(e)')
-        sessionStorage.setItem('user_id', body.id)
-      }
     })
+      .then((response) => response.json())
+      .then((body) => {
+        if (body.profil_id === 1) {
+          this.emp_id = body.id
+          this.current_user = 'admin'
+          sessionStorage.setItem('user', 'Administrateur')
+          sessionStorage.setItem('user_id', body.id)
+          console.log(body.id)
+        } else {
+          this.emp_id = body.id
+          this.current_user = 'employe'
+          sessionStorage.setItem('user', 'Employé(e)')
+          sessionStorage.setItem('user_id', body.id)
+        }
+      })
 
     if (localStorage.getItem('isChecked') === 'true') {
       document.querySelector('.toast').style.display = 'none'
@@ -321,82 +297,108 @@ export default {
         sessionStorage.setItem('nbre', body.body)
         if (body.body > 0) {
           if (body.body === 1) {
-            let utterance = new SpeechSynthesisUtterance(`Une notification entrante!`);
-            utterance.lang = 'fr';
-            speechSynthesis.speak(utterance);
+            let utterance = new SpeechSynthesisUtterance(`Une notification entrante!`)
+            utterance.lang = 'fr'
+            speechSynthesis.speak(utterance)
             sessionStorage.setItem('nbre', body.body)
-          } else{
-          let utterance = new SpeechSynthesisUtterance(`${body.body} notifications entrantes!`);
-          utterance.lang = 'fr';
-          speechSynthesis.speak(utterance);
-          sessionStorage.setItem('nbre', body.body)
-        }
+          } else {
+            let utterance = new SpeechSynthesisUtterance(`${body.body} notifications entrantes!`)
+            utterance.lang = 'fr'
+            speechSynthesis.speak(utterance)
+            sessionStorage.setItem('nbre', body.body)
+          }
         }
       })
 
-      const url4 = new URL(
-          `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${this.emp_id}`
-      );
-      fetch(url4, {
-          method: "GET",
-          headers,
-      }).then(response => response.json())
-      .then(body => {
+    const url4 = new URL(
+      `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${this.emp_id}`
+    )
+    fetch(url4, {
+      method: 'GET',
+      headers
+    })
+      .then((response) => response.json())
+      .then((body) => {
         // console.log(body.body)
         // console.log(this.emp_id)
         this.len2 = body.body.length
-        this.percent2 = (this.len2*100/body.body.length).toFixed(2)
-        body.body.forEach(elm=> {
-            this.total2 += parseInt(elm.sells[0].montant)
-        });
-      })  
+        this.percent2 = ((this.len2 * 100) / body.body.length).toFixed(2)
+        body.body.forEach((elm) => {
+          this.total2 += parseInt(elm.sells[0].montant)
+        })
+      })
 
-      const url2 = new URL(
-    "https://laravel.lazonebleue.com/api/get_all_patients"
-      );
-      fetch(url2, {
-          method: "GET",
-          headers,
-      }).then(response => response.json())
-      .then(body => {
+    const url2 = new URL('https://laravel.lazonebleue.com/api/get_all_patients')
+    fetch(url2, {
+      method: 'GET',
+      headers
+    })
+      .then((response) => response.json())
+      .then((body) => {
         // console.log(body.body)
         this.len = body.body.length
-        this.percent = (this.len/body.body.length)*100
-        this.percent2 = (this.len2/body.body.length)*100
-        body.body.forEach(elm=> {
-            this.total += parseInt(elm.sells[0].montant)
-        });
-        body.body.forEach(elm=> {
+        // console.log(this.len)
+        this.percent = (this.len / body.body.length) * 100
+        this.percent2 = (this.len2 / body.body.length) * 100
+        body.body.forEach((elm) => {
+          this.total += parseInt(elm.sells[0].montant)
+        })
+        body.body.forEach((elm) => {
           const url4 = new URL(
-              `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${elm.user_id}`
-          );
+            `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${elm.user_id}`
+          )
           fetch(url4, {
-              method: "GET",
-              headers,
-          }).then(response => response.json())
-          .then(body => {
-            if (body.success) {
-              if (body.body) {
-                // console.log(body.body)
-                if (body.body[0].user.profil_id !== 1){
-                  this.pat.push({
-                    name: body.body[0].user.name,
-                    percent: ((body.body[0].sells.length/this.len).toFixed(2))*100,
-                    caractere: body.body[0].sells.length/this.len > 0.2 ? 'plus' : "minus"
-                  })
-                for (let index = 0; index < 3; index++) {
-                  this.pat2.push(this.pat[index])
+            method: 'GET',
+            headers
+          })
+            .then((response) => response.json())
+            .then((body) => {
+              if (body.success) {
+                if (body.body) {
+                  // console.log(body)
+                  const big = body.body
+                  if (body.body[0].user.profil_id !== 1) {
+                    let idArray = []
+                    for (let index = 0; index < body.body.length - 1; index++) {
+                      idArray.push(body.body[0].user.id)
+                      idArray = Array.from(new Set(idArray))
+                      // console.log(idArray)
+                    }
+                    const url = new URL(
+                        "https://laravel.lazonebleue.com/api/get_all_users"
+                    );
+                    const headers = {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                    };
+                    fetch(url, {
+                        method: "GET",
+                        headers,
+                    }).then(response => response.json())
+                    .then(body => {
+                      // console.log(body.body)
+                      for (let index = 0; index < idArray.length; index++) {
+                        for (let j = 0; j < body.body.length; j++) {
+                          if (idArray[index] === (body.body[j].id)){
+                            // console.log(big)
+                            this.pat[index] = {
+                              id:body.body[j].id,
+                              name: body.body[j].name,
+                              percent: (big.length / this.len).toFixed(2) * 100,
+                              caractere: big.length / this.len > 0.2 ? 'plus' : 'minus'
+                            }
+                          }
+                        } 
+                      }
+                    })
+                    console.log(this.pat)
+                  }
                 }
-                }
-                
+              } else {
+                console.log('Erreur')
               }
-            }
-            else{
-              console.log("Erreur")
-            }
-          })  
-        });
-        console.log(this.pat2)
+            })
+        })
       })
   }
 }
