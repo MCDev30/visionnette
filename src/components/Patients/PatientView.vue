@@ -186,7 +186,7 @@ export default {
       mail: 'employe@email.com',
       admin: localStorage.getItem('admin_mail'),
       pat: [], 
-      patient:"",
+      patient:[],
       current: sessionStorage.getItem('user'),
       nbre:0,
       mks: false,
@@ -320,7 +320,7 @@ export default {
                 this.searchList.push(patient)
               }
             });
-            console.log(this.searchList)
+            // console.log(this.searchList)
         })
       }
     }
