@@ -112,7 +112,7 @@
                   <td>Action</td>
                 </tr>
                 <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
-                <tr v-if="current === 'Administrateur'" id="liste" v-for="elm in patient.reverse()" :key="elm.id" :class="[elm.color % 2 == 1 ? 'violet' : 'yellow']">
+                <tr v-if="current === 'Administrateur'" id="liste" v-for="elm in patient" :key="elm.id" :class="[elm.color % 2 == 1 ? 'violet' : 'yellow']">
                   <td>{{ elm.last_name.toUpperCase()}} {{ elm.first_name }} </td>
                   <td>{{ elm.phone_number ? elm.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>
@@ -128,7 +128,7 @@
                   <td>{{ elm.user.name === "admin" ? "ADMINISTRATEUR" : elm.user.name }}</td>
                   <td style="color: rgb(172, 2, 2); cursor:pointer" @click="supp(elm.id)">Supprimer</td>
                 </tr>
-                <tr v-else id="liste" v-for="elmt in pat.reverse()" :key="elmt.id" :class="[elmt.color % 2 == 1 ? 'violet' : 'yellow']">
+                <tr v-else id="liste" v-for="elmt in pat" :key="elmt.id" :class="[elmt.color % 2 == 1 ? 'violet' : 'yellow']">
                   <td>{{ elmt.last_name.toUpperCase()}} {{ elmt.first_name }} </td>
                   <td>{{ elmt.phone_number ? elmt.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>
@@ -232,7 +232,7 @@ export default {
           headers,
       }).then(response => response.json())
       .then(body => {
-        this.patient = body.body
+        this.patient = body.body.reverse()
       })
 
       const url3 = new URL(
@@ -243,7 +243,7 @@ export default {
           headers,
       }).then(response => response.json())
       .then(body => {
-        this.pat = body.body
+        this.pat = body.body.reverse()
       })   
     },
   methods: {

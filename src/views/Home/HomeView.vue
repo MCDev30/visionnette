@@ -244,14 +244,16 @@ export default {
       percent2: 0,
       total2: 0,
       pat: [],
-      pat2: []
+      pat2: [],
+      bog: [],
+      idArray: []
     }
   },
   methods: {
     toggleChecked() {
       document.querySelector('.toast').style.display = 'none'
       localStorage.setItem('isChecked', true)
-    },
+    }
   },
   mounted() {
     const url = new URL('https://laravel.lazonebleue.com/api/user')
@@ -271,7 +273,7 @@ export default {
           this.current_user = 'admin'
           sessionStorage.setItem('user', 'Administrateur')
           sessionStorage.setItem('user_id', body.id)
-          console.log(body.id)
+          // console.log(body.id)
         } else {
           this.emp_id = body.id
           this.current_user = 'employe'
@@ -336,18 +338,20 @@ export default {
       .then((response) => response.json())
       .then((body) => {
         // console.log(body.body)
+        const bigBody = body.body
         this.len = body.body.length
         // console.log(this.len)
         this.percent = (this.len / body.body.length) * 100
         this.percent2 = (this.len2 / body.body.length) * 100
         body.body.forEach((elm) => {
-          this.total += parseInt(elm.sells[0].montant)
+          this.total += parseInt(elm.sells[0].montant * 1)
         })
-        body.body.forEach((elm) => {
-          const url4 = new URL(
+        bigBody.forEach((elm) => {
+          console.log(elm.user_id)
+          const urll = new URL(
             `https://laravel.lazonebleue.com/api/get_total_patients_by_employee?employee_id=${elm.user_id}`
           )
-          fetch(url4, {
+          fetch(urll, {
             method: 'GET',
             headers
           })
@@ -355,43 +359,14 @@ export default {
             .then((body) => {
               if (body.success) {
                 if (body.body) {
-                  // console.log(body)
-                  const big = body.body
+                  console.log(body.body)
+                  this.big = body.body
                   if (body.body[0].user.profil_id !== 1) {
-                    let idArray = []
                     for (let index = 0; index < body.body.length - 1; index++) {
-                      idArray.push(body.body[0].user.id)
-                      idArray = Array.from(new Set(idArray))
-                      // console.log(idArray)
+                      this.idArray.push(body.body[0].user.id)
+                      // this.idArray = Array.from(new Set(this.idArray))
+                      console.log(this.idArray)
                     }
-                    const url = new URL(
-                        "https://laravel.lazonebleue.com/api/get_all_users"
-                    );
-                    const headers = {
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                    };
-                    fetch(url, {
-                        method: "GET",
-                        headers,
-                    }).then(response => response.json())
-                    .then(body => {
-                      // console.log(body.body)
-                      for (let index = 0; index < idArray.length; index++) {
-                        for (let j = 0; j < body.body.length; j++) {
-                          if (idArray[index] === (body.body[j].id)){
-                            // console.log(big)
-                            this.pat[index] = {
-                              id:body.body[j].id,
-                              name: body.body[j].name,
-                              percent: (big.length / this.len).toFixed(2) * 100,
-                              caractere: big.length / this.len > 0.2 ? 'plus' : 'minus'
-                            }
-                          }
-                        } 
-                      }
-                    })
-                    console.log(this.pat)
                   }
                 }
               } else {
@@ -400,6 +375,31 @@ export default {
             })
         })
       })
+
+    const urlx = new URL('https://laravel.lazonebleue.com/api/get_all_users')
+    fetch(urlx, {
+      method: 'GET',
+      headers
+    })
+      .then((response) => response.json())
+      .then((body) => {
+        // console.log(body.body)
+        for (let index = 0; index < this.idArray.length; index++) {
+          for (let j = 0; j < body.body.length; j++) {
+            if (this.idArray[index] === body.body[j].id) {
+              // console.log(big)
+              this.pat[index] = {
+                id: body.body[j].id,
+                name: body.body[j].name,
+                percent: (this.big.length / this.len).toFixed(2) * 100,
+                caractere: this.big.length / this.len > 0.2 ? 'plus' : 'minus'
+              }
+            }
+          }
+        }
+        console.log(this.pat)
+      })
+    
   }
 }
 </script>
