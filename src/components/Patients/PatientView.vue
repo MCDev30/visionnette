@@ -112,7 +112,7 @@
                   <td>Action</td>
                 </tr>
                 <!-- eslint-disable-next-line vue/no-use-v-if-with-v-for -->
-                <tr v-if="current === 'Administrateur'" id="liste" v-for="elm in patient" :key="elm.id" :class="[elm.color % 2 == 1 ? 'violet' : 'yellow']">
+                <tr v-if="current === 'Administrateur'" id="liste" v-for="elm in patient.reverse()" :key="elm.id" :class="[elm.color % 2 == 1 ? 'violet' : 'yellow']">
                   <td>{{ elm.last_name.toUpperCase()}} {{ elm.first_name }} </td>
                   <td>{{ elm.phone_number ? elm.phone_number : 'Aucun contact trouvé' }}</td>
                   <td>

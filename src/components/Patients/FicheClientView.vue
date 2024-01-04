@@ -140,21 +140,6 @@
                       <tr>
                         <td>
                           <div class="corr_gauche">
-                            <div><p>Oeil gauche</p></div>
-                            <div>
-                              <input
-                                type="text"
-                                placeholder="VL"
-                                v-model="left_eye_vl_correction"
-                              /><br />
-                              <input
-                                type="text"
-                                placeholder="VP"
-                                v-model="left_eye_vp_correction"
-                              />
-                            </div>
-                          </div>
-                          <div class="corr_gauche">
                             <div><p>Oeil droit</p></div>
                             <div>
                               <input
@@ -169,6 +154,22 @@
                               />
                             </div>
                           </div>
+                          <div class="corr_gauche">
+                            <div><p>Oeil gauche</p></div>
+                            <div>
+                              <input
+                                type="text"
+                                placeholder="VL"
+                                v-model="left_eye_vl_correction"
+                              /><br />
+                              <input
+                                type="text"
+                                placeholder="VP"
+                                v-model="left_eye_vp_correction"
+                              />
+                            </div>
+                          </div>
+
                         </td>
 
                         <td>

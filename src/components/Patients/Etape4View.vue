@@ -99,17 +99,18 @@
                 <form @submit.prevent="set_one">
                   <div class="correction">
                     <div class="cor">
-                      <p id="oeil">Oeil gauche</p>
-                      <p id="cc">Correction</p>
-                      <input id="in" type="text" placeholder="VL" v-model="left_vl">
-                      <input id="in" type="text" placeholder="VP" v-model="left_vp">
-                    </div>
-                    <div class="cor">
                       <p id="oeil">Oeil droit</p>
                       <p id="cc">Correction</p>
                       <input id="in" type="text" placeholder="VL" v-model="right_vl">
                       <input id="in" type="text" placeholder="VP" v-model="right_vp">
                     </div>
+                    <div class="cor">
+                      <p id="oeil">Oeil gauche</p>
+                      <p id="cc">Correction</p>
+                      <input id="in" type="text" placeholder="VL" v-model="left_vl">
+                      <input id="in" type="text" placeholder="VP" v-model="left_vp">
+                    </div>
+
                   </div>
                   <input type="datetime-local" placeholder="Date d'enregistrement" v-model="date"/>
                   <input type="text" placeholder="Traitement" v-model="treatment"/> 

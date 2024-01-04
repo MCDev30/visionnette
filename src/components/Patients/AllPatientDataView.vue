@@ -141,18 +141,17 @@
                     <tr>
                       <td>
                         <div class="corr_gauche">
-                          <div><p>Oeil gauche</p></div>
-                          <div>
-                            <input type="text" placeholder="VL" v-model="lftvl">
-                            <input type="text" placeholder="VP" v-model="lftvp">
-                          </div>
-                        </div>
-
-                        <div class="corr_gauche">
                           <div><p>Oeil droit</p></div>
                           <div>
                             <input type="text" placeholder="VL" v-model="rghvl">
                             <input type="text" placeholder="VP" v-model="rghvp">
+                          </div>
+                        </div>
+                        <div class="corr_gauche">
+                          <div><p>Oeil gauche</p></div>
+                          <div>
+                            <input type="text" placeholder="VL" v-model="lftvl">
+                            <input type="text" placeholder="VP" v-model="lftvp">
                           </div>
                         </div>
                       </td>
