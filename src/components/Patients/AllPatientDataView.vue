@@ -215,8 +215,8 @@ export default {
       const data={
         user_id: sessionStorage.getItem('user_id'),
         last_name:this.nom.toUpperCase(),
-        first_name:this.prenom ? this.prenom : "-",
-        email:this.Gmail ? this.Gmail : "mail@indisponible.visionnete",
+        first_name:this.prenom ? this.prenom: "-",
+        email:this.Gmail ? this.Gmail : '',
         phone_number:this.numero ? this.numero : "-",
         frame:this.monture ? this.monture :'-',
         reference:this.reference ? this.reference :"-",
